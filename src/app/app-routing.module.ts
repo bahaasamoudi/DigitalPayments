@@ -18,7 +18,7 @@ const routes: Routes = [
   
   // {path : "login", component : LoginModalComponent},
   // {path : "signup", component : SignUpModalComponent},
-  {path: 'dashboard',loadChildren: () => import('./sobhi/dashboard.module').then(q => q.DashboardModule)}
+  {path: 'dashboard',loadChildren: () => import('./dashboard/dashboard.module').then(q => q.DashboardModule)}
 ];
 
 @NgModule({
