@@ -1,0 +1,57 @@
+
+  .sidebar-box .border {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important; }
+  
+  .sidebar-box .company-wrap {
+    display: block; }
+  
+  .sidebar-box .text {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0; }
+  
+  .sidebar-box .text p .number {
+    font-size: 1rem;
+    background: #fed8a9;
+    color: #fff;
+    padding: 2px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px; }
+
+ .heading-sidebar{
+   font-family: "Source Sans Pro", Arial, sans-serif;
+   font-size: 19px;
+   line-height: 1.5;
+   color: #000000;
+   font-weight: 300;
+   display: block;
+   margin-top: 0;
+   margin-bottom:0.5erm;
+ }
+ .browse-form label input {
+  margin-right: 7px;
+}
+
+.icon {
+  position: absolute;
+  top: 23%;
+  left: 78%;
+  font-size: 16px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #999999; }
+
+  .form-control {
+  height: 52px !important;
+  background: #fff !important;
+  color: #000000 !important;
+  font-size: 14px;
+  border-radius: 5px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important; }
+  .form-control:focus, .form-control:active {
+    border-color: #000000; }
+

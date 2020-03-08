@@ -1,0 +1,8 @@
+.sec-cover,.sec-lcover{
+    background-color: #f8f9fa !important;
+    color: #999999;
+    /* padding: 70px 0;  */
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.sec-lcover{background-color: white !important;}

@@ -1,0 +1,61 @@
+nav{
+    position: absolute;
+    z-index: 122;
+    width: 100%;
+    padding:25px;
+}
+.nav-btn{
+    background-color: rgb(247, 119, 34);
+    margin: 5px;
+    border-radius: 5px;
+    width: auto;
+    padding: 5px 10px;
+}
+.blue-btn{
+    background-color: #206dfb;
+}
+.nav-btn a{
+    color: white !important;
+}
+.nav-item a:hover{
+    color: rgb(255, 115, 0);
+    opacity: .8;
+    transition: .3s all ease-out;
+}
+.img2{ 
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 7px; 
+  }
+.logo{
+    float: left;
+}
+.logo a{
+    font-size: 30px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.ftco-nav{
+    display: flex;
+    float: right;
+}
+.ftco-nav ul{
+    margin-left: auto !important;
+}
+.ftco-nav ul li {
+    display: list-item;
+    margin: 5px;
+    padding-left: 10px;
+}
+ul li a {
+    color: white;
+    font-size: 16px;
+
+}
+.nav-cont{
+    width: 100%;
+    position: static;
+    padding: 5px 0;
+}
+
+
+/*****************************************/

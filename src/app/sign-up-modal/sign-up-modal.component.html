@@ -1,0 +1,124 @@
+<div id="signup" class="signUpModal modal"  >
+	<form class="sign-up_modal-content animate" action="/action_page.php" method="post" style="width:700px;height:auto;margin-top: 0;">
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<img src="../../assets/images/bbuser.jpg" alt="Avatar" class="avatar">
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="label " for="first_name">first name</label>
+						<input class="input--style-4" type="text" name="first_name" required>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="label " for="last_name">last name</label>
+						<input class="input--style-4" type="text" name="last_name" required>
+					</div>
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<label class="label" for="psw">Password</label>	
+			            <input class="input--style-4" type="password" name="psw" required>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						<label for="rpt_psw" class="label">Repeate Password</label>
+						<input class="input--style-4" type="password" name="rpt_psw" required>
+					</div>
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="input-group">
+						<label class="label" for="email">Email</label>
+						<input class="input--style-4" type="email" name="email" required>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="input-group">
+						<label class="label" for="phone">Phone Number</label>
+						<input class="input--style-4" type="text" name="phone" required>
+					</div>
+				</div>
+			</div>
+
+            <div class="row">
+                <div class="col-lg-6">
+					<div class="input-group">
+						<label class="label" for="username">Username</label>
+						<input class="input--style-4" type="text" name="username" required>
+					</div>
+                </div>
+                <div class="col-md-6">
+					<div class="input-group">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<label class="label">Gender</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="p-t-10 col-md-12">
+									<label class="radio-container m-r-45">Male
+										<input type="radio" checked="checked" name="gender">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container">Female
+										<input type="radio" name="gender">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+            </div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="input-group">
+						<label class="label">Birthday</label>
+					    <div class="input-group-icon" style="width: 100%;">
+							<input class="input--style-4" style="width: 100%;" type="text" name="birthday" required>
+							<span class="fa fa-calendar input-icon"></span>
+						</div>
+                    </div>
+				</div>
+				
+			</div> 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <label class="label" for="country">Country</label>
+                        <div class="">
+                            <select name="country">
+                                <option disabled="disabled" selected="selected">Choose Your City</option>
+                                <option>Nablus</option>
+                                <option>Tulkarm</option>
+                                <option>Ramallah</option>
+                            </select>
+                            <div class="select-dropdown"></div>
+                        </div>
+        </div> 
+                </div>
+            </div>
+			
+		</div>
+
+		<div class="p-t-15" style="width:50%;margin: auto;">
+			<button class="btn btn--radius-2 btn--blue" style="width: 100%;" type="submit">Sign Up</button>
+		</div>
+	</form>
+</div>
+
+

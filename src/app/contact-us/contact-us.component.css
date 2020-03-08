@@ -1,0 +1,27 @@
+.block-9 .form-control {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 15px ; }
+.contact-section .contact-info p a {
+    color: #1a1a1a; }
+.h3{
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.65rem;
+    color: black;
+    } 
+p{
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #999999;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+a{
+    color: black;
+    padding: 5px;
+}
+a:hover{ text-decoration: none;}
