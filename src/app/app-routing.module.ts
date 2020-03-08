@@ -18,7 +18,7 @@ const routes: Routes = [
   
   // {path : "login", component : LoginModalComponent},
   // {path : "signup", component : SignUpModalComponent},
-  {path:"test", component: TestComponent}
+  {path: 'dashboard',loadChildren: () => import('./sobhi/dashboard.module').then(q => q.DashboardModule)}
 ];
 
 @NgModule({
@@ -26,4 +26,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =[BrowseShopsComponent,ContactUsComponent,UserProfileComponent,TestComponent,HomeComponent];
+export const routingComponents =[BrowseShopsComponent,ContactUsComponent,UserProfileComponent,HomeComponent];
