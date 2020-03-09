@@ -24,6 +24,16 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { ShopInfoTabComponent } from './shop-info-tab/shop-info-tab.component';
 import { ShopModalComponent } from './shop-modal/shop-modal.component';
 import { HomeComponent } from './home/home.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgReduxModule } from '@angular-redux/store';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -50,7 +60,15 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
+    BrowserAnimationsModule,
+    NgReduxModule,    
+
+
+    HttpClientModule,
+ 
+    
     ],
   providers: [],
   bootstrap: [AppComponent]

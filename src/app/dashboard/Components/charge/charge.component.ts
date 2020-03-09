@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
-import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-charge',
@@ -18,14 +17,14 @@ export class ChargeComponent implements OnInit {
 
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private transactionService: TransactionService) {
+  constructor(private modalService: NgbModal) {
   }
 
   generateBarCode(content, form: NgForm) {
       this.open(content)
-      this.transactionService.Charge(form.value.codeText).subscribe(data => {
-        this.barcodeValue =  'https://barcode.tec-it.com/barcode.ashx?data=' + data["Code"] + '&code=Code128&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0'
-      })
+      // this.transactionService.Charge(form.value.codeText).subscribe(data => {
+      //   this.barcodeValue =  'https://barcode.tec-it.com/barcode.ashx?data=' + data["Code"] + '&code=Code128&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0'
+      // })
     }
 
   open(content) {

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { AuthService } from 'src/app/dashboard/services/auth.service';
 import {ThemeOptions} from '../../../../../theme-options';
 
 @Component({
@@ -8,14 +7,14 @@ import {ThemeOptions} from '../../../../../theme-options';
 })
 export class UserBoxComponent implements OnInit {
 
-  constructor(public globals: ThemeOptions, private authSerive: AuthService) {
+  constructor(public globals: ThemeOptions) {
   }
 
   ngOnInit() {
   }
 
  logout() {
-  this.authSerive.logout();
+  // this.authSerive.logout();
   }
   
 
