@@ -39,6 +39,8 @@ import {LayoutComponent} from './DemoPages/Forms/Elements/layout/layout.componen
 // Charts
 
 import {ChartjsComponent} from './DemoPages/Charts/chartjs/chartjs.component';
+import { ShopInfoTabComponent } from '../shop-info-tab/shop-info-tab.component';
+
 
 const routes: Routes = [
   {
@@ -48,11 +50,12 @@ const routes: Routes = [
 
       // Dashboads
 
-      {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
+      {path: '', component: DropdownsComponent, data: {extraParameter: 'dashboardsMenu'}},
+      {path: 'tables/customer-details', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
 
       // Elements
 
-      {path: 'elements/dropdowns', component: DropdownsComponent, data: {extraParameter: 'elementsMenu'}},
+    //  {path: 'elements/dropdowns', component: DropdownsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'elements/icons', component: IconsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'elements/list-group', component: ListGroupsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'elements/timeline', component: TimelineComponent, data: {extraParameter: 'elementsMenu'}},
