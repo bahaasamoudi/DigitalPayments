@@ -8,6 +8,8 @@ import {rootReducer, ArchitectUIState} from './ThemeOptions/store';
 import {ConfigActions} from './ThemeOptions/store/config.actions';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 
+
+
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 // import {AppComponent} from './app.component';
@@ -59,7 +61,7 @@ import {IconsComponent} from './DemoPages/Elements/icons/icons.component';
 
 // Components
 
-import {TabsComponent} from './Components/tabs/tabs.component';
+
 import {ChargeComponent} from './Components/Charge/charge.component';
 
 
@@ -89,6 +91,7 @@ import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/p
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -97,12 +100,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
 
     // LAYOUT
-
+  
     DashboardComponent,
     BaseLayoutComponent,
     PagesLayoutComponent,
     PageTitleComponent,
-
+   
     // HEADER
 
     HeaderComponent,
@@ -117,7 +120,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     // FOOTER
 
     FooterComponent,
-
+    
     // DEMO PAGES
 
     // Dashboards
@@ -129,14 +132,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     // Elements
 
     IconsComponent,
-    DropdownsComponent,
+    
     ListGroupsComponent,
     TimelineComponent,
 
     // Components
 
-    TabsComponent,
+    
     ChargeComponent,
+    
 
     
     // Dashboard Boxes
@@ -162,6 +166,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DynamicChartComponent,
     BubbleChartComponent,
     ScatterChartComponent,
+    DropdownsComponent,
+
   ],
   imports: [
   
@@ -172,7 +178,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     NgbModule,
    // Charts
-
+  
    ChartsModule,
     // Angular Bootstrap Components
 

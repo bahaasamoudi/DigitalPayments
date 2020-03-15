@@ -22,7 +22,7 @@ import {IconsComponent} from './DemoPages/Elements/icons/icons.component';
 
 // Components
 
-import {TabsComponent} from './Components/tabs/tabs.component';
+
 import {ChargeComponent} from './Components/Charge/charge.component';
 
 // Tables
@@ -62,7 +62,7 @@ const routes: Routes = [
 
       // Components
 
-      {path: 'components/tabs', component: TabsComponent, data: {extraParameter: 'componentsMenu'}},
+     
       {path: 'components/charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
 
       // Widgets

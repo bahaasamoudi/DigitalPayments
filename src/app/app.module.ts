@@ -35,9 +35,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+  
     FooterComponent,
     WrapComponent,
     NavComponent,
@@ -56,6 +60,7 @@ import { ChartsModule } from 'ng2-charts';
     ShopModalComponent,
     routingComponents,
     HomeComponent,
+    
     // TestComponent,
   ],
   imports: [
@@ -64,7 +69,7 @@ import { ChartsModule } from 'ng2-charts';
     
     BrowserAnimationsModule,
     NgReduxModule,    
-
+   
 
     HttpClientModule,
  
