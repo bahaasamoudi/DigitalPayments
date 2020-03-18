@@ -27,7 +27,7 @@ import {ChartsModule} from 'ng2-charts';
 
 import {BaseLayoutComponent} from './Layout/base-layout/base-layout.component';
 import {PagesLayoutComponent} from './Layout/pages-layout/pages-layout.component';
-import {PageTitleComponent} from './Layout/Components/page-title/page-title.component';
+
 
 // HEADER
 
@@ -56,13 +56,16 @@ import {AnalyticsComponent} from './DemoPages/Dashboards/analytics/analytics.com
 
 import {DropdownsComponent} from './DemoPages/Elements/dropdowns/dropdowns.component';
 import {ListGroupsComponent} from './DemoPages/Elements/list-groups/list-groups.component';
-import {TimelineComponent} from './DemoPages/Elements/timeline/timeline.component';
-import {IconsComponent} from './DemoPages/Elements/icons/icons.component';
+
+
+import {MyprofileComponent} from './DemoPages/Elements/myprofile/myprofile.component';
 
 // Components
 
 
 import {ChargeComponent} from './Components/Charge/charge.component';
+import {ScanComponent} from './Components/scan/scan.component';
+
 
 
 // Widgets
@@ -90,6 +93,8 @@ import {DoughnutChartComponent} from './DemoPages/Charts/chartjs/examples/doughn
 import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/pie-chart.component';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { NotificationsComponent } from './DemoPages/Elements/notifications/notifications.component';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -104,7 +109,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DashboardComponent,
     BaseLayoutComponent,
     PagesLayoutComponent,
-    PageTitleComponent,
+    
    
     // HEADER
 
@@ -131,16 +136,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
     // Elements
 
-    IconsComponent,
+ 
     
     ListGroupsComponent,
-    TimelineComponent,
+  
 
     // Components
 
     
     ChargeComponent,
-    
+    ScanComponent,
+    MyprofileComponent,
 
     
     // Dashboard Boxes
@@ -167,6 +173,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BubbleChartComponent,
     ScatterChartComponent,
     DropdownsComponent,
+    NotificationsComponent,
 
   ],
   imports: [
@@ -180,6 +187,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
    // Charts
   
    ChartsModule,
+  
+  
+
     // Angular Bootstrap Components
 
     FormsModule,

@@ -38,6 +38,8 @@ import { ChartsModule } from 'ng2-charts';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,7 @@ import { ChartsModule } from 'ng2-charts';
     FooterComponent,
     WrapComponent,
     NavComponent,
+   
     LoginModalComponent,
     SignUpModalComponent,
     PostShopComponent,
@@ -60,6 +63,7 @@ import { ChartsModule } from 'ng2-charts';
     ShopModalComponent,
     routingComponents,
     HomeComponent,
+  
     
     // TestComponent,
   ],
