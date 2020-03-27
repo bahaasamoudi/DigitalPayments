@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProfileFormComponent } from 'src/app/user-profile-form/user-profile-form.component';
+import{MatDialog,MatDialogRef} from '@angular/material/dialog';
+import { LoginModalComponent } from 'src/app/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-nav',
@@ -6,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
-  constructor() {
+  
+  //fileNameDialogRef: MatDialogRef<LoginModalComponent>;
+  constructor(public dialog: MatDialog) {
 
     function myFunction() {
       var x = document.getElementById("navbar");
@@ -21,5 +25,16 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
+   openLoginDialog(): void {
+  this.dialog.open(LoginModalComponent);
 
+ }
+
+ openSignupDialog():void{
+  this.dialog.open(UserProfileFormComponent);
+ }
+
+
+ 
 }

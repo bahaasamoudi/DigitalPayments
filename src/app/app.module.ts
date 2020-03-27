@@ -25,8 +25,9 @@ import { ShopInfoTabComponent } from './shop-info-tab/shop-info-tab.component';
 import { ShopModalComponent } from './shop-modal/shop-modal.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgReduxModule } from '@angular-redux/store';
+import{RouterModule} from '@angular/router';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,6 +35,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 
@@ -69,16 +75,23 @@ import { ChartsModule } from 'ng2-charts';
   ],
   imports: [
     BrowserModule,
+    MatTabsModule,
     AppRoutingModule,
     
     BrowserAnimationsModule,
     NgReduxModule,    
-   
+   RouterModule,
 
     HttpClientModule,
- 
+  
+    MatDialogModule,
+    MatButtonModule,
+   
+    
+
     
     ],
+  entryComponents:[ UserProfileFormComponent,LoginModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

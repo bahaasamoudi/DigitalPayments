@@ -5,6 +5,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TestComponent } from './test/test.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomeComponent } from './home/home.component';
+import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 // import { LoginModalComponent } from './login-modal/login-modal.component';
 // import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
 
@@ -14,6 +16,12 @@ const routes: Routes = [
   {path : "browseshops", component : BrowseShopsComponent},
   {path : "contactus", component : ContactUsComponent},
   {path : "userprofile", component : UserProfileComponent},
+ 
+  
+
+  
+
+
 
   
   // {path : "login", component : LoginModalComponent},
