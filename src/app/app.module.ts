@@ -39,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -86,6 +87,7 @@ import {MatButtonModule} from '@angular/material/button';
   
     MatDialogModule,
     MatButtonModule,
+    FontAwesomeModule,
    
     
 

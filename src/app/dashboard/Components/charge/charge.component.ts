@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './charge.component.html'
 })
 export class ChargeComponent implements OnInit {
-  @ViewChild('barcodeResult', { static: false }) barcodeResult : ElementRef
+  @ViewChild('barcodeResult') barcodeResult : ElementRef
   barcodeValue
 
 
