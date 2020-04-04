@@ -16,7 +16,6 @@ import {HttpClientModule} from '@angular/common/http';
 
 // BOOTSTRAP COMPONENTS
 
-import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {PERFECT_SCROLLBAR_CONFIG} from 'ngx-perfect-scrollbar';
@@ -181,7 +180,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DashboardRoutingModule,
     CommonModule,
     LoadingBarRouterModule,
-    AngularFontAwesomeModule,
+    // AngularFontAwesomeModule,
     PerfectScrollbarModule,
     NgbModule,
    // Charts
