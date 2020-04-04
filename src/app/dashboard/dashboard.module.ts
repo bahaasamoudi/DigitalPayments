@@ -93,6 +93,7 @@ import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/p
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { NotificationsComponent } from './DemoPages/Elements/notifications/notifications.component';
+import { PageTitleComponent } from './layout/components/page-title/page-title.component';
 
 
 
@@ -173,6 +174,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ScatterChartComponent,
     DropdownsComponent,
     NotificationsComponent,
+    PageTitleComponent,
 
   ],
   imports: [
