@@ -10,13 +10,6 @@ import{MatDialog} from '@angular/material/dialog';
 export class AppComponent {
   title = 'Dig-Pay-Pro';
 
-  constructor(public dialog: MatDialog){}
-  openDialog(): void {
-    this.dialog.open(UserProfileFormComponent);
-
- 
-
- 
-
- }
+  constructor(){}
+  
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit ,Inject} from '@angular/core';
+import { Component, OnInit ,Inject,Input} from '@angular/core';
 
 import { UserProfileFormComponent } from '../user-profile-form/user-profile-form.component';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-login-modal',
@@ -12,8 +13,14 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 })
 export class LoginModalComponent implements OnInit {
-  
-  
+
+  classConfig;
+  @Input('config') set config(value){
+    this.classConfig = value;
+  }
+ 
+   
+
   constructor() { 
     // Get the modal
 	var modal = document.getElementById('signin');

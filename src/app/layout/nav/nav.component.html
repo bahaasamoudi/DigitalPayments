@@ -12,12 +12,25 @@
           <li class="nav-item"><a routerLink = "/browseshops"class="nav-link">Browse Shops</a></li>
           <li class="nav-item"><a routerLink="/test" class="nav-link">About us</a></li>
           <li class="nav-item"><a routerLink="/contactus" class="nav-link">Contact</a></li>
-          <li class="nav-item nav-btn blue-btn"><a  class="nav-link"   (click)="openLoginDialog()">Login</a></li>
+
+          <li class="nav-item nav-btn blue-btn"><a  class="nav-link"  (click)="send()" >
+            <div class="app-login-modal">
+            Login  
+           <app-login-modal  [config]="config"></app-login-modal>
+          </div>
+          </a></li>
           
-          <li class="nav-item nav-btn"><a  class="nav-link"  (click)="openSignupDialog()" >Sign up</a></li>
+          <li class="nav-item nav-btn"><a  class="nav-link" (click)="func()" >
+            <div class="app-signup-modal">
+            Sign up
+            <app-sign-up-modal  [config2]="config2"></app-sign-up-modal>
+          </div>
+          </a></li>
           
         </ul>
         <app-dropdown></app-dropdown>
       </div>
     </div>
 </nav>
+
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up-modal.component.scss']
 })
 export class SignUpModalComponent implements OnInit {
-
+  classConfig;
+  @Input('config2') set config2(value){
+    this.classConfig = value;
+  }
   constructor() {
     // Get the modal
     var signUpModal = document.getElementById('signup');
