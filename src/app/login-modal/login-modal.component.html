@@ -1,28 +1,31 @@
 <div class="modal" id="signin"  [ngClass]=" {'config' : classConfig}">
-  
-	<form class="modal-content animate" action="/action_page.php" method="post" style="width: 500px;height:auto;margin-top: 0;">
+	<form [formGroup]="insertForm" (ngSubmit)="onSubmit()" class="modal-content animate"  method="post" style="width: 500px;height:auto;margin-top: 0;">
 		<div class="imgcontainer" >
 		<span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
 		<img src="../../assets/images/user.png" alt="Avatar" class="avatar js-tilt" style="width: 100px; height: 100px;" data-tilt>
-	  	</div>
+		<div *ngIf = "invalidLogin" class = "text-danger">{{ErrorMessage}}</div>
+
+	</div>
   
 	  <div class="container">
 		<label for="uname"><b>Username</b></label>
-		<input type="text" placeholder="Enter Username Or Email" name="uname" required>
-  
+		<input type="text" placeholder="Enter Username Or Email" formControlName="Username" required>
+		<span *ngIf="Username.touched && Username.errors && Username.hasError('required')" class = "text-danger">Username is required</span>
+
 		<label for="psw"><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="psw" required>
-		  
-		<button type="submit" > Login </button><br>
-		
+		<input formControlName="Password" type="password" placeholder="Enter Password"  required>
+		<span *ngIf="Password.touched && Password.errors && Password.hasError('required')" class = "text-danger">Password is required</span>
+
+		<button type="submit" [disabled]="insertForm.invalid" > Login </button><br>
+<!-- 		
 		<label>
 		  <input type="checkbox" checked="checked" name="remember"> Remember me
-		</label>
+		</label> -->
 	  </div>
   
 	  <div class="container" style="background-color:#f1f1f1">
 		<button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
-		<span class="psw">Forgot <a href="#">password?</a></span>
+		<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
 	  </div>
     </form>
     

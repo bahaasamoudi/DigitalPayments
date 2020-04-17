@@ -39,6 +39,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AccessDeniedComponent } from './components/errors/access-denied/access-denied.component';
 
 
 
@@ -69,11 +70,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ShopModalComponent,
     routingComponents,
     HomeComponent,
+    AccessDeniedComponent,
   
     
     // TestComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     MatTabsModule,
     AppRoutingModule,

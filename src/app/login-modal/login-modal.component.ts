@@ -4,6 +4,9 @@ import { UserProfileFormComponent } from '../user-profile-form/user-profile-form
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 import { NgClass } from '@angular/common';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -14,6 +17,14 @@ import { NgClass } from '@angular/common';
 })
 export class LoginModalComponent implements OnInit {
 
+  insertForm : FormGroup;
+  Username :  FormControl;
+  Password :  FormControl;
+  returnUrl : string;
+  ErrorMessage: string;
+  invalidLogin: boolean;
+
+
   classConfig;
   @Input('config') set config(value){
     this.classConfig = value;
@@ -21,7 +32,7 @@ export class LoginModalComponent implements OnInit {
  
    
 
-  constructor() { 
+  constructor(private acct : AccountService,  private router : Router,  private route: ActivatedRoute, private fb: FormBuilder) { 
     // Get the modal
 	var modal = document.getElementById('signin');
 	
@@ -34,7 +45,26 @@ export class LoginModalComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.Username = new FormControl('', [Validators.required]);
+    this.Password = new FormControl('', [Validators.required]);
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+    this.insertForm = this.fb.group({
+      "Username" : this.Username,
+      "Password" : this.Password
+    });
   }
   
-
+  onSubmit() {
+    let userlogin = this.insertForm.value;
+    this.acct.login(userlogin.Username, userlogin.Password).subscribe(result => {
+      let token = (<any>result).token;
+      this.invalidLogin = false;
+      this.router.navigateByUrl(this.returnUrl);
+    },
+    error => {
+      this.invalidLogin = true;
+      this.ErrorMessage = error.error.loginError;
+      console.log(this.ErrorMessage);
+    })
+}
   }
