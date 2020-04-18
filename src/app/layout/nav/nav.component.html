@@ -13,14 +13,14 @@
           <li class="nav-item"><a routerLink="/test" class="nav-link">About us</a></li>
           <li class="nav-item"><a routerLink="/contactus" class="nav-link">Contact</a></li>
 
-          <li class="nav-item nav-btn blue-btn"><a  class="nav-link"  (click)="send()" >
+          <li class="nav-item nav-btn blue-btn"  *ngIf="!(LoginStatus$ | async) as LoginStatus"><a  class="nav-link"  (click)="send()" >
             <div class="app-login-modal">
             Login  
            <app-login-modal  [config]="config"></app-login-modal>
           </div>
           </a></li>
           
-          <li class="nav-item nav-btn"><a  class="nav-link" (click)="func()" >
+          <li class="nav-item nav-btn " *ngIf="!(LoginStatus$ | async) as LoginStatus"><a  class="nav-link" (click)="func()"  >
             <div class="app-signup-modal">
             Sign up
             <app-sign-up-modal  [config2]="config2"></app-sign-up-modal>
@@ -28,7 +28,7 @@
           </a></li>
           
         </ul>
-        <app-dropdown></app-dropdown>
+        <app-dropdown *ngIf="(LoginStatus$ | async) as LoginStatus"></app-dropdown>
       </div>
     </div>
 </nav>

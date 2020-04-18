@@ -2,6 +2,8 @@ import { Component, OnInit ,Input} from '@angular/core';
 import { UserProfileFormComponent } from 'src/app/user-profile-form/user-profile-form.component';
 import{MatDialog,MatDialogRef} from '@angular/material/dialog';
 import { LoginModalComponent } from 'src/app/login-modal/login-modal.component';
+import { AccountService } from 'src/app/services/account.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -9,6 +11,8 @@ import { LoginModalComponent } from 'src/app/login-modal/login-modal.component';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+
+  
   config;
   send(){
      this.config = true;
@@ -25,9 +29,10 @@ export class NavComponent implements OnInit {
   
   //fileNameDialogRef: MatDialogRef<LoginModalComponent>;
 
-  constructor(public dialog: MatDialog) {
-
-
+  constructor(public dialog: MatDialog, private acct : AccountService) {
+ 
+ 
+   
     function myFunction() {
       var x = document.getElementById("navbar");
       if (x.className === "topnav") {
@@ -38,9 +43,13 @@ export class NavComponent implements OnInit {
     }
    }
   
-   
+   LoginStatus$ : Observable<boolean>;
+   UserName$ : Observable<string>;
+ 
 
   ngOnInit() {
+    this.LoginStatus$ = this.acct.isLoggesIn;
+    this.UserName$ = this.acct.currentUserName;
   }
  
    openLoginDialog(): void {
@@ -51,6 +60,8 @@ export class NavComponent implements OnInit {
  openSignupDialog():void{
   this.dialog.open(UserProfileFormComponent);
  }
+
+
 
 
  

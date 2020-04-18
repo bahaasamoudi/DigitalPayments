@@ -175,7 +175,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DropdownsComponent,
     NotificationsComponent,
     PageTitleComponent,
-
   ],
   imports: [
   

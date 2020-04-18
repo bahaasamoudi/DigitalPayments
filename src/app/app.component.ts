@@ -11,5 +11,5 @@ export class AppComponent {
   title = 'Dig-Pay-Pro';
 
   constructor(){}
-  
+ 
 }

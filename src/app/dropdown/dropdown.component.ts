@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../services/account.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
-  constructor() { }
+  constructor(private acct : AccountService) { }
+
+  LoginStatus$ : Observable<boolean>;
+  UserName$ : Observable<string>;
 
   ngOnInit() {
+      this.LoginStatus$ = this.acct.isLoggesIn;
+      this.UserName$ = this.acct.currentUserName;
   }
 
+  onLogout() {
+    this.acct.logout();
+  }
 }
