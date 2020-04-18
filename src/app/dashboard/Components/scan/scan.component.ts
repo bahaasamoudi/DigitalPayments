@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Quagga from 'quagga'; // ES6
+import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
   selector: 'app-scan',
@@ -13,12 +14,17 @@ export class ScanComponent implements OnInit {
   heading = 'Charging';
   subheading = 'Charging For Customers';
   icon = 'fa fa-credit-card';
-
+  invalidScan: boolean;
+  errorList: string[];
   closeResult: string;
- 
+  success: string;
+  constructor(private modalService: NgbModal, private transactionService: TransactionsService) { }
+
 
     open(content) {
-    
+      this.success = ""
+      this.errorList = []
+      this.invalidScan = false;
     this.modalService.open(content).result.then((result) => {
      
     }, (reason) => {
@@ -27,7 +33,7 @@ export class ScanComponent implements OnInit {
           });
 
            // this.closeResult = `Closed with: ${result}`;
-           
+           var that = this;
 
       Quagga.init({
         inputStream : {
@@ -48,15 +54,28 @@ export class ScanComponent implements OnInit {
           Quagga.start();
         });
         Quagga.onDetected(function(data) {
-         alert(data.codeResult.code)
+         
+          that.transactionService.charge(data.codeResult.code).subscribe(data => {
+            that.modalService.dismissAll();
+            that.success = "Successful"
+            that.errorList = []
+            that.invalidScan = false;
+          }, error => {
+            that.errorList = [];
+            that.invalidScan = true;
+            that.errorList.push(error.error);
+            console.log(error)
+            for(var i = 0; i < error.error.value.length; i++) {
+              that.errorList.push(error.error.value[i]);
+            }
+          })
+      
         });
          
   }
 
 
 
-
-  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   

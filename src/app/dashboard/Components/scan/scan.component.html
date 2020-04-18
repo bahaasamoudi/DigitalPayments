@@ -17,14 +17,19 @@
           </div>
           <div class="modal-body">
             <div style='text-align: center;'>
+              <ul *ngIf = "invalidScan" class = "list-unstyled alert alert-danger mt-3">
+                <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+              </ul>
                 <div id="camera" ></div>
              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </ng-template>
+        <div *ngIf = "success != ''" class = "text-success">
+          {{success}}
+        </div>
         <button type = "submit" class = "btn btn-primary" (click) = "open(content)">Scan</button>
       </div>
     </div>
