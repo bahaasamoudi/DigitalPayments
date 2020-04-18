@@ -49,7 +49,7 @@ export class ScanComponent implements OnInit {
         });
         Quagga.onDetected(function(data) {
          alert(data.codeResult.code)
-              });
+        });
          
   }
 

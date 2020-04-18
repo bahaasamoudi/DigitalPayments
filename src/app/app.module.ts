@@ -32,7 +32,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -40,6 +40,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccessDeniedComponent } from './components/errors/access-denied/access-denied.component';
+import { AuthGuardService } from './guards/auth-duard.service';
+import { JwtInterceptor } from './helpers/Jwt.Interceptor';
 
 
 
@@ -97,7 +99,9 @@ import { AccessDeniedComponent } from './components/errors/access-denied/access-
     
     ],
   entryComponents:[ UserProfileFormComponent,LoginModalComponent],
-  providers: [],
+  providers: [
+    AuthGuardService,{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
