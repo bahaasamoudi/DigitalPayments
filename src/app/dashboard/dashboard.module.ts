@@ -7,7 +7,7 @@ import {NgRedux, DevToolsExtension} from '@angular-redux/store';
 import {rootReducer, ArchitectUIState} from './ThemeOptions/store';
 import {ConfigActions} from './ThemeOptions/store/config.actions';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import {CommonModule} from '@angular/common';
@@ -94,6 +94,9 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { NotificationsComponent } from './DemoPages/Elements/notifications/notifications.component';
 import { PageTitleComponent } from './layout/components/page-title/page-title.component';
+import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurchase.component';
+import { UserstransactionComponent } from './Components/userstransaction/userstransaction.component';
+import { AddshopComponent } from './Elements/addshop/addshop.component';
 
 
 
@@ -175,6 +178,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DropdownsComponent,
     NotificationsComponent,
     PageTitleComponent,
+    ScantopurchaseComponent,
+    UserstransactionComponent,
+    AddshopComponent,
   ],
   imports: [
   
@@ -187,7 +193,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
    // Charts
   
    ChartsModule,
-  
+   MatTabsModule,
   
 
     // Angular Bootstrap Components

@@ -93,6 +93,7 @@ import { JwtInterceptor } from './helpers/Jwt.Interceptor';
     MatDialogModule,
     MatButtonModule,
     FontAwesomeModule,
+    MatTabsModule,
    
     
 
