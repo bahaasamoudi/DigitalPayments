@@ -52,36 +52,14 @@ const routes: Routes = [
     path: '',
     component: BaseLayoutComponent,
     children: [
-
-      // Dashboads
-
       {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
       {path: 'profile', component: MyprofileComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}},
-      // Elements
-
-    //  {path: 'elements/dropdowns', component: DropdownsComponent, data: {extraParameter: 'elementsMenu'}},
-      
       {path: 'elements/notifications', component: NotificationsComponent, data: {extraParameter: 'elementsMenu'}},
-      
-
-      // Components
-
       {path: 'components/userstransaction', component: UserstransactionComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'components/scantopurchase', component: ScantopurchaseComponent , data: {extraParameter: 'dashboardsMenu'}},
-      {path: 'components/charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
-      {path: 'components/scan', component: ScanComponent, data: {extraParameter: 'componentsMenu'}},
-
-      // Widgets
-
-      //{path: 'widgets/chart-boxes-3', component: ChartBoxes3Component, data: {extraParameter: 'pagesMenu3'}},
-
-      // Forms Elements
-
-     // {path: 'forms/layouts', component: LayoutComponent, data: {extraParameter: 'formElementsMenu'}},
-
-      // Charts
-
+      {path: 'charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
+      {path: 'scan', component: ScanComponent, data: {extraParameter: 'componentsMenu'}},
       {path: 'charts/chartjs', component: ChartjsComponent, data: {extraParameter: ''}},
 
     ]
@@ -91,9 +69,6 @@ const routes: Routes = [
     path: '',
     component: PagesLayoutComponent,
     children: [
-
-      // User Pages
-
     ]
   },
   {path: '**', redirectTo: ''}

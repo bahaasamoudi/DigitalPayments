@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AccessDeniedComponent } from './components/errors/access-denied/access-denied.component';
+import { AuthGuardService } from './guards/auth-duard.service';
 // import { LoginModalComponent } from './login-modal/login-modal.component';
 // import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
 
@@ -18,17 +19,8 @@ const routes: Routes = [
   {path : "contactus", component : ContactUsComponent},
   {path : "userprofile", component : UserProfileComponent},
   {path : "access-denied", component : AccessDeniedComponent},
-
-  
-
-  
-
-
-
-  
-  // {path : "login", component : LoginModalComponent},
-  // {path : "signup", component : SignUpModalComponent},
-  {path: 'dashboard',loadChildren: () => import('./dashboard/dashboard.module').then(q => q.DashboardModule)}
+  {path: 'dashboard',loadChildren: () => import('./dashboard/dashboard.module').then(q => q.DashboardModule)
+      , canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

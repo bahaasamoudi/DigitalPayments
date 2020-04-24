@@ -20,7 +20,6 @@ export class LoginModalComponent implements OnInit {
   insertForm : FormGroup;
   Username :  FormControl;
   Password :  FormControl;
-  returnUrl : string;
   ErrorMessage: string;
   invalidLogin: boolean;
 
@@ -47,7 +46,6 @@ export class LoginModalComponent implements OnInit {
   ngOnInit() {
     this.Username = new FormControl('', [Validators.required]);
     this.Password = new FormControl('', [Validators.required]);
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
     this.insertForm = this.fb.group({
       "Username" : this.Username,
       "Password" : this.Password
@@ -59,7 +57,6 @@ export class LoginModalComponent implements OnInit {
     this.acct.login(userlogin.Username, userlogin.Password).subscribe(result => {
       let token = (<any>result).token;
       this.invalidLogin = false;
-      this.router.navigateByUrl(this.returnUrl);
     },
     error => {
       this.invalidLogin = true;

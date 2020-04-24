@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import * as JWT from 'jwt-decode';
+import { User } from '../dashboard/interfaces/user';
 
 
 @Injectable({
@@ -21,6 +22,7 @@ export class AccountService {
   private UserName    = new BehaviorSubject<string>(localStorage.getItem('username'));
   private UserId    = new BehaviorSubject<string>(localStorage.getItem('userid'));
   private UserRole    = new BehaviorSubject<string>(localStorage.getItem('userRole'));
+  private user$: Observable<User>;
 
     register(username: string, password: string, email : string, firstName: string, lastName: string, phoneNumber: number,  country: string, gender: number) {
       return this.http.post<any>(this.baseUrl + 'register', {username, password, email, firstName, lastName, phoneNumber,  country: "Palestine", gender, role: "User" }).pipe(map(result => {
@@ -98,4 +100,14 @@ export class AccountService {
     get currentUserRole() {
         return this.UserRole.asObservable();
     }
+
+    getUserInfo() : Observable<User> {
+      if (!this.user$) {
+          this.user$ = this.http.get<User>(this.baseUrl + 'GetUserInfo/').pipe(shareReplay());
+      }
+      // if categories cache exists return it
+      return this.user$;
+  }
+
+
 }

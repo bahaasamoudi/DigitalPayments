@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeOptions} from '../../../../../theme-options';
+import { AccountService } from 'src/app/services/account.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-box',
@@ -7,16 +9,19 @@ import {ThemeOptions} from '../../../../../theme-options';
 })
 export class UserBoxComponent implements OnInit {
 
-  constructor(public globals: ThemeOptions) {
-  }
+  constructor(private acct : AccountService) { }
 
+  LoginStatus$ : Observable<boolean>;
+  UserName$ : Observable<string>;
   ngOnInit() {
-  }
+    this.LoginStatus$ = this.acct.isLoggesIn;
+    this.UserName$ = this.acct.currentUserName;
+}
 
- logout() {
-  // this.authSerive.logout();
-  }
   
+  onLogout() {
+    this.acct.logout();
+  }
 
 }
 

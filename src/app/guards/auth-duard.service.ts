@@ -14,34 +14,35 @@ export class AuthGuardService implements CanActivate {
     canActivate( route: ActivatedRouteSnapshot, state : RouterStateSnapshot) : Observable<boolean> {
         return this.acct.isLoggesIn.pipe(take(1), map((loginStatus : boolean) => {
             const destination: string  = state.url;
-            const categoryId = route.params.id;
-            if((destination.includes('/login') || destination == '/register')) {
-              if(loginStatus) {
-                this.router.navigate(['']);
+            // const categoryId = route.params.id;
+            if((destination.includes('/dashboard'))) {
+              if(!loginStatus) {
+                this.router.navigate(['access-denied']);
                 return false;
               } else {
                 return true;
               }
 
             }
-            switch(destination) {
-                // case '/categories/add' :
-                // case '/categories/update/' + categoryId : {
-                // // If User Not Logged In And Try To Access [add/Update Category] Redirect To Login Page
-                // if(!loginStatus) {
-                //     this.router.navigate(['login'], { queryParams: {returnUrl : destination} });
-                //     return false;
-                //   }
-                //     if(localStorage.getItem("userRole") === 'Admin') {
-                //         return true;
-                //     } else {
-                //       this.router.navigate(['access-denied'])
-                //       return false;
-                //     }
-                // }
-              default:
-                    return false;
-            }
+            // switch(destination) {
+            //     case '/dashboard/' : {
+            //     // If User Not Logged In And Try To Access Redirect To Login Page
+            //     if(!loginStatus) {
+            //         this.router.navigate(['access-denied']);
+            //         return false;
+            //       } else {
+            //         return true;
+            //       }
+            //         // if(localStorage.getItem("userRole") === 'Admin') {
+            //         //     return true;
+            //         // } else {
+            //         //   this.router.navigate(['access-denied'])
+            //         //   return false;
+            //         // }
+            //     }
+            //   default:
+            //         return false;
+            // }
         }));
     }
 
