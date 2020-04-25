@@ -109,5 +109,21 @@ export class AccountService {
       return this.user$;
   }
 
+  changePersonalInformation(firstName: string, lastName: string, phoneNumber: number, gender: number) {
+    return this.http.post<any>(this.baseUrl + 'ChangePersonalInformation/', {firstName, lastName, phoneNumber,  gender}).pipe(map(result => {
+        return result;
+    }, error => {
+        return error;
+    }));
+  }
+
+  changePassword(currentPassword: string, newPassword: string) {
+    return this.http.post<any>(this.baseUrl + 'ChangePassword/', {currentPassword, newPassword}).pipe(map(result => {
+        return result;
+    }, error => {
+        return error;
+    }));
+  }
+
 
 }

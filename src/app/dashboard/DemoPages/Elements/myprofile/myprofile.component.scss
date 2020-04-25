@@ -32,3 +32,13 @@
     margin-top: 7px; 
     width: 100px; height: 100px;
   }
+
+  .hover:hover {
+    text-decoration: underline; 
+    cursor: pointer;
+    color: #00F;
+  }
+
+  .valid {
+    margin-top: -16px
+  }

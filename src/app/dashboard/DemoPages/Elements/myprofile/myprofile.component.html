@@ -1,34 +1,133 @@
 <div class="container">
     <div class="card-deck">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
+        <ng-container *ngIf='!showform'>
+            Loading
+        </ng-container>
+        <ng-container *ngIf='showform'>
+            <form   [formGroup]="personalInformationForm" (ngSubmit)="onSubmitPersonal()" id = "personalForm">
+                <div class="card">
+                    <div class="card-body">
+                        <div class = "row">
+                            <h5 class="card-title col-sm-9">Personal Information</h5> 
+                        <span class = "col-sm-3 text-link hover"  (click) = "enableInputs('personalForm')">Edit</span>
+                        </div>
+                            <div class="form-group row">
+                                <label class="col-lg-6 col-form-label">First Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text"  formControlName="firstName" disabled/>
+                                </div>
+                            </div>
+                            <div *ngIf="firstName.touched && firstName.hasError('required')" class = "text-danger valid">First Name is required</div>
+                            <div class="form-group row">
+                                <label class="col-lg-6 col-form-label">Last Name</label>
+                                <div class="col-lg-6">
+                                    <input type="text"  formControlName="lastName" disabled />
+                                </div>
+                            </div>
+                            <div *ngIf=" lastName.touched && lastName.hasError('required')" class = "text-danger valid">Last Name is required</div>
 
+                            <div class="form-group row">
+                                <label class="col-lg-6 col-form-label">Phone Number</label>
+                                <div class="col-lg-6">
+                                    <input type="text"  formControlName="phoneNumber" disabled/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div *ngIf="phoneNumber.touched && phoneNumber.hasError('required')" class = "text-danger valid">Phone Number  is required</div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-6 col-form-label">Balance</label>
+                                <div class="col-lg-6">
+                                    <input type="number" disabled  id = "balance"  formControlName="balance"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-6 col-form-label">Gender</label>
+                                <div class="col-lg-6">
+                                    <input type="radio" value = "0" [checked]="genderValue === 0"  disabled   formControlName="gender"/> Male
+                                    <input type="radio" value = "1" [checked]="genderValue === 1"   disabled  formControlName="gender"/> Female
+                                </div>
+                            </div>
+                            <div *ngIf="gender.touched && gender.hasError('required')" class = "text-danger valid">Gender is required</div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" class = "btn btn-primary" value = "Change" id = "no-disabled-pers" [disabled]="personalInformationForm.invalid || !enablePersonalChange "/>
+                        <div *ngIf = "invalidPersonalInformationChange == false" class = "alert alert-success mt-3">Change Success</div>
+                        <ul *ngIf = "invalidPersonalInformationChange == true" class = "list-unstyled alert alert-danger mt-3">
+                            <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+                          </ul>
+                    </div>
+                </div>
+        </form>
+
+        <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmitPasswordChange()" id = "changePasswordForm">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <div class = "row">
+                        <h5 class="card-title col-sm-9">Password</h5> 
+                    <span class = "col-sm-3 text-link hover"  (click) = "enableInputs('changePasswordForm')">Edit</span>
+                    </div>
+                        <div class="form-group row">
+                            <label class="col-lg-6 col-form-label">Current Password</label>
+                            <div class="col-lg-6">
+                                <input type="password" formControlName="currentPassword" disabled/>
+                            </div>
+                        </div>
+                        <div *ngIf="currentPassword.touched && currentPassword.hasError('required')" class = "text-danger valid">Password is required</div>
+                        <div class="form-group row">
+                            <label class="col-lg-6 col-form-label">New Password </label>
+                            <div class="col-lg-6">
+                                <input type="password" formControlName="newPassword" disabled/>
+                            </div>
+                        </div>
+                        <div *ngIf="newPassword.touched && newPassword.hasError('required')" class = "text-danger valid">Password is required</div>
+                        <div class="form-group row">
+                            <label class="col-lg-6 col-form-label">Repeat New Password</label>
+                            <div class="col-lg-6">
+                                <input type="password" formControlName="confirmNewPassword" disabled/>
+                            </div>
+                        </div>
+                        <div *ngIf="confirmNewPassword.touched && confirmNewPassword.errors" class = "valid">
+							<span *ngIf="confirmNewPassword.hasError('required')" class = "text-danger">Confirm Password is required</span>
+							<span *ngIf="confirmNewPassword.hasError('mustMatch')" class = "text-danger">Password Must Match</span>
+                        </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class = "btn btn-primary " id = "no-disabled-pass" value = "Change" [disabled]="changePasswordForm.invalid"/>
+                    <div *ngIf = "invalidPasswordChange == false" class = "alert alert-success mt-3">Change Success</div>
+                    <ul *ngIf = "invalidPasswordChange == true" class = "list-unstyled alert alert-danger mt-3">
+                        <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+                      </ul>
+                </div>
+            </div>
+        </form>
+        <form action="" class = "mt-3 col-sm-5">
+            <div class="card">
+                <div class="card-body ">
+                    <h5 class="card-title">Account Information</h5>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">Email</label>
+                            <div class="col-lg-9">
+                                {{email}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" >Username</label>
+                            <div class="col-lg-8">
+                                {{username}}
+                            </div>
+                        </div>
+    
+                </div>
+                <div class="card-footer">
+                    Cannot Change Account Information
+                </div>
+            </div>
+        </form>
+    </ng-container>
+
+      </div>
+   
     <div class="row">
         
         <div class="col-lg-8 order-lg-2">
@@ -40,65 +139,7 @@
                        
                 
                         <div id="tab-pane-active" id="edit">
-                            <ng-container *ngIf='showform'>
-                            <form role="form" [formGroup]="insertForm" (ngSubmit)="onSubmit()">
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">First name</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text"  formControlName="firstName">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Last name</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text"  formControlName="lastName">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Username</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text"  disabled formControlName="username">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Email</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="email" formControlName="email">
-                                        <a href="#" class="badge"><i class="fa fa-edit"></i></a>
-                                    </div>
-                                </div>      
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Phone</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="tel" id="ii" formControlName="phonenumber">
-                                        <a href="#" class="badge"><i class="fa fa-edit"></i></a>
-                                    </div>
-                                </div>
-                                
-                               
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Password</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="password" formControlName="password">
-                                        <a href="#" class="badge"><i class="fa fa-edit"></i></a>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label">Balance</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="tel" id="ii" value="" disabled formControlName="balance">
-                                        <a href="#" class="badge"><i class="fa fa-edit"></i></a>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label"></label>
-                                    <div class="col-lg-9">
-                                       
-                                        <input type="button" class="btn  savebtn green-btn" value="Save Changes">
-                                    </div>
-                                </div>
-                            </form>
-                        </ng-container>
+                      
 
                         </div>
                         
