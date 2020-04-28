@@ -57,7 +57,7 @@ const routes: Routes = [
       {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'elements/notifications', component: NotificationsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'components/userstransaction', component: UserstransactionComponent , data: {extraParameter: 'dashboardsMenu'}},
-      {path: 'components/scantopurchase', component: ScantopurchaseComponent , data: {extraParameter: 'dashboardsMenu'}},
+      {path: 'scantopurchase', component: ScantopurchaseComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
       {path: 'scan', component: ScanComponent, data: {extraParameter: 'componentsMenu'}},
       {path: 'charts/chartjs', component: ChartjsComponent, data: {extraParameter: ''}},

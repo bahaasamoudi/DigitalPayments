@@ -76,14 +76,14 @@ export class MyprofileComponent implements OnInit {
   }
 
   enableInputs(form) {
-    var form = document.getElementById(form);
-      var elements = form.elements;
-      for (var i = 0, len = elements.length; i < len; ++i) {
-          elements[i].disabled = false;
-      }
-      document.getElementById('balance').disabled = true
-      document.getElementById('no-disabled-pass').disabled = true
-      document.getElementById('no-disabled-pers').disabled = true
+    // var form = document.getElementById(form);
+    //   var elements = form.elements;
+    //   for (var i = 0, len = elements.length; i < len; ++i) {
+    //       elements[i].disabled = false;
+    //   }
+    //   document.getElementById('balance').disabled = true
+    //   document.getElementById('no-disabled-pass').disabled = true
+    //   document.getElementById('no-disabled-pers').disabled = true
 
 
   }

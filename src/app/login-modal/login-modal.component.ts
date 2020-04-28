@@ -57,6 +57,7 @@ export class LoginModalComponent implements OnInit {
     this.acct.login(userlogin.Username, userlogin.Password).subscribe(result => {
       let token = (<any>result).token;
       this.invalidLogin = false;
+      this.router.navigate(['/dashboard'])
     },
     error => {
       this.invalidLogin = true;
