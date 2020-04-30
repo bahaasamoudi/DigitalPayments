@@ -36,15 +36,15 @@ export class SignUpModalComponent implements OnInit {
     this.classConfig = value;
   }
   constructor(private fb: FormBuilder, private acct: AccountService, private router: Router ) {
-    // Get the modal
-    var signUpModal = document.getElementById('signup');
+  //   // Get the modal
+  //   var signUpModal = document.getElementById('signup');
     
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == signUpModal) {
-        signUpModal.style.display = "none";
-      }
-    }
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function(event) {
+  //     if (event.target == signUpModal) {
+  //       signUpModal.style.display = "none";
+  //     }
+  //   }
    }
 
   ngOnInit() {

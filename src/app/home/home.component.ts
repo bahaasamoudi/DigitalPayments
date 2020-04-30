@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title: String  ="Home";
+  title: String  ="A SMART WALLET SERVICE";
   constructor() { }
-
   ngOnInit() {
   }
 

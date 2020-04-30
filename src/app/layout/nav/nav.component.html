@@ -8,23 +8,21 @@
         </div>
       <div id="ftco-nav" class="ftco-nav">
         <ul class="collapse navbar-collapse navbar-nav">
-          <li class="nav-item"><a routerLink = "/home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a routerLink = "" class="nav-link">Home</a></li>
           <li class="nav-item"><a routerLink = "/browseshops"class="nav-link">Browse Shops</a></li>
-          <li class="nav-item"><a routerLink="/test" class="nav-link">About us</a></li>
           <li class="nav-item"><a routerLink="/contactus" class="nav-link">Contact</a></li>
-
-          <li class="nav-item nav-btn blue-btn"  *ngIf="!(LoginStatus$ | async) as LoginStatus"><a  class="nav-link"  (click)="send()" >
-            <div class="app-login-modal">
+          <li class="nav-item"  *ngIf="!(LoginStatus$ | async) as LoginStatus"><a routerLink="/login"  class="nav-link"  (click)="send()" >
+            <!-- <div class="app-login-modal" style="cursor: pointer;"> -->
             Login  
-           <app-login-modal  [config]="config"></app-login-modal>
-          </div>
+           <!-- <app-login-modal  [config]="config"></app-login-modal>
+            </div> -->
           </a></li>
           
-          <li class="nav-item nav-btn " *ngIf="!(LoginStatus$ | async) as LoginStatus"><a  class="nav-link" (click)="func()"  >
-            <div class="app-signup-modal">
+          <li class="nav-item " *ngIf="!(LoginStatus$ | async) as LoginStatus"><a routerLink="/signup"  class="nav-link" (click)="func()"  >
+            <!-- <div class="app-signup-modal" style="cursor: pointer;"> -->
             Sign up
-            <app-sign-up-modal  [config2]="config2"></app-sign-up-modal>
-          </div>
+            <!-- <app-sign-up-modal  [config2]="config2"></app-sign-up-modal>
+          </div> -->
           </a></li>
           
         </ul>

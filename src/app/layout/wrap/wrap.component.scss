@@ -6,6 +6,7 @@
     width: 100%;
     height: 500px;
     color: white;
+    color: #051923;
     margin-bottom: 70px;
 }
 .text-center{
@@ -43,6 +44,7 @@
         .slider-text .breadcrumbs span a:hover {
           text-decoration: none; 
           color: rgb(255, 115, 0);
+          color: #051923;
           opacity: .8;
           transition: .5s all ease-out;
         }
@@ -71,8 +73,13 @@
     opacity: .8;
     background: #000000;
     background: #207dff;
-    background: -moz-linear-gradient(left, #207dff 0%, #a16ae8 100%);
-    background: -o-linear-gradient(left, #207dff 0%, #a16ae8 100%);
-    background: linear-gradient(to right, #207dff 0%, #a16ae8 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#a16ae8', GradientType=1 ); }
+    // background: -moz-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    // background: -o-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    // background: linear-gradient(to right, #207dff 0%, #a16ae8 100%);
+/**************************/
+    background: -moz-linear-gradient(left, #207dff 0%, #9ee663 100%);
+    background: -o-linear-gradient(left, #207dff 10%, #9ee663 90%);
+    background: linear-gradient(to right, #207dff 0%, #9ee663 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#9ee663', GradientType=1 ); }
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#a16ae8', GradientType=1 ); }
   

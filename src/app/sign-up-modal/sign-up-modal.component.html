@@ -1,11 +1,11 @@
-<div id="signup" class="modal" [ngClass]=" {'config2' : classConfig}" >
+
+<div class="container animate" [ngClass]=" {'config2' : classConfig}">
 	<form [formGroup]="insertForm" (ngSubmit)="onSubmit()" class="sign-up_modal-content animate" method="post" style="width:700px;height:auto;margin-top: 0;">
 		<div class="imgcontainer">
-			<span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Modal">&times;</span>
 			<img src="../../assets/images/bbuser.jpg" alt="Avatar" class="avatar">
 			<ul *ngIf = "invalidRegister" class = "list-unstyled alert alert-danger mt-3">
 				<li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
-			  </ul>
+			</ul>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -99,8 +99,18 @@
 						</div>
 					</div>
 				</div>
-
             </div>
+			<div class="row">
+				<div class="col-md-6 input-group">
+					<label for="id" class="label">ID Number</label>
+					<input type="text" name="id" id="" class="input--style-4" required>
+					<span *ngIf="username.hasError('required')" class = "text-danger">ID Number is required</span>
+				</div>
+				<div class="p-t-15 col-md-6">
+					<button class="btn btn--radius-2 btn--blue" style="width: 100%; margin-top: 20px;" type="submit" [disabled]="insertForm.invalid">Sign Up</button>
+				</div>
+			</div>
+
 
 			<!-- <div class="row">
 				<div class="col-lg-12">
@@ -134,10 +144,9 @@
 			
 		</div>
 
-		<div class="p-t-15" style="width:50%;margin: auto;">
+		<!-- <div class="p-t-15" style="width:50%;margin: auto;">
 			<button class="btn btn--radius-2 btn--blue" style="width: 100%;" type="submit" [disabled]="insertForm.invalid">Sign Up</button>
-		</div>
+		</div> -->
 	</form>
 </div>
-
 

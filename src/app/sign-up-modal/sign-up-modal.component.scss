@@ -1,5 +1,8 @@
-.modal.config2{
-  display: block;
+// .modal.config2{
+//   display: block;
+// }
+form{
+  margin: 50px auto !important;
 }
 .radio-container {
     display: inline-block;
@@ -70,7 +73,7 @@
   /***************************************/
   /* The Modal (background) */
   .modal, .signUpmodal {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 100; /* Sit on top */
     left: 0;
@@ -87,10 +90,10 @@
     .sign-up_modal-content{
         padding: 25px;
         background-color: #fefefe;
-        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
         width: auto; /* Could be more or less, depending on screen size */
-        border-radius: 20px;   
+        border-radius: 20px;  
+        margin: auto;
+        box-shadow:20px 20px 50px rgba(0,0,0,0.4); 
     }
   /***********************/
 
@@ -150,23 +153,6 @@
     display: block;
     margin-bottom: 5px;
   }
- 
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-
     /* Center the image and position the close button */
     .imgcontainer {
         text-align: center;
@@ -205,12 +191,8 @@
   }
 
   .btn--blue {
-    background: #206dfb ;
-  }
-  
-  .btn--blue:hover {
-    opacity: 0.8;
-    color: #000;
+    background: #0456ee ;
+    opacity: .9;
   }
 
   .p-t-15 {

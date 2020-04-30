@@ -1,34 +1,28 @@
-<div class="modal" id="signin"  [ngClass]=" {'config' : classConfig}">
-	<form [formGroup]="insertForm" (ngSubmit)="onSubmit()" class="modal-content animate"  method="post" style="width: 500px;height:auto;margin-top: 0;">
-		<div class="imgcontainer" >
-		<span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close Modal">&times;</span>
-		<img src="../../assets/images/user.png" alt="Avatar" class="avatar js-tilt" style="width: 100px; height: 100px;" data-tilt>
-		<div *ngIf = "invalidLogin" class = "text-danger">{{ErrorMessage}}</div>
+<div class="container animate" [ngClass]=" {'config2' : classConfig}" >
+	<form action="" method="POST" [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+		<div class="imgcontainer">
+			<h2 style="margin-bottom: 20px; padding-bottom: 20px;">Welcome</h2>
+			<img src="../../assets/images/user.png" alt="Avatar" class="avatar js-tilt" style="width: 100px; height: 100px;" data-tilt>
+			<div *ngIf = "invalidLogin" class = "text-danger">{{ErrorMessage}}</div>
+		</div>
+		<div class="row">
+			<label for="uname" class="col-md-3"><b>Username</b></label>
+			<input type="text" class="col-md-9" placeholder="Enter Username Or Email" formControlName="Username" required>
+			<span *ngIf="Username.touched && Username.errors && Username.hasError('required')" class = "text-danger">Username is required</span>	
+		</div>
+		<div class="row">
+			<label for="psw"  class="col-md-3"><b>Password</b></label>
+			<input formControlName="Password" type="password" placeholder="Enter Password"  class="col-md-9" required>
+			<span *ngIf="Password.touched && Password.errors && Password.hasError('required')" class = "text-danger">Password is required</span>	
+		</div>
+		<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+			<button type="submit" [disabled]="insertForm.invalid" class="col-md-8"> Login </button><br>
+			<div class=" col-md-4">
+				<span class="psw" >Forgot <a href="#">password?</a></span>
+			</div>
+		</div>
+		
+		<span>Don't have an account? / <a routerLink="/signup"><b>Sign Up</b></a> NOW!</span>
 
-	</div>
-  
-	  <div class="container">
-		<label for="uname"><b>Username</b></label>
-		<input type="text" placeholder="Enter Username Or Email" formControlName="Username" required>
-		<span *ngIf="Username.touched && Username.errors && Username.hasError('required')" class = "text-danger">Username is required</span>
-
-		<label for="psw"><b>Password</b></label>
-		<input formControlName="Password" type="password" placeholder="Enter Password"  required>
-		<span *ngIf="Password.touched && Password.errors && Password.hasError('required')" class = "text-danger">Password is required</span>
-
-		<button type="submit" [disabled]="insertForm.invalid" > Login </button><br>
-<!-- 		
-		<label>
-		  <input type="checkbox" checked="checked" name="remember"> Remember me
-		</label> -->
-	  </div>
-  
-	  <div class="container" style="background-color:#f1f1f1">
-		<button type="button" onclick="document.getElementById('signin').style.display='none'" class="cancelbtn">Cancel</button>
-		<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
-	  </div>
-    </form>
-    
+	</form>
 </div>
-      
-  	
