@@ -45,6 +45,9 @@ import { NotificationsComponent } from './DemoPages/Elements/notifications/notif
 import { UserstransactionComponent } from './Components/userstransaction/userstransaction.component';
 import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurchase.component';
 import { AddshopComponent } from './Elements/addshop/addshop.component';
+import { UsersComponent } from './Components/users/users.component';
+import { SitestatsComponent } from './Components/sitestats/sitestats.component';
+
 
 
 const routes: Routes = [
@@ -61,6 +64,11 @@ const routes: Routes = [
       {path: 'charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
       {path: 'scan', component: ScanComponent, data: {extraParameter: 'componentsMenu'}},
       {path: 'charts/chartjs', component: ChartjsComponent, data: {extraParameter: ''}},
+      {path: 'userstransaction', component: UserstransactionComponent, data: {extraParameter: ''}},
+      {path: 'scantopurchase', component: ScantopurchaseComponent, data: {extraParameter: ''}},
+      {path: 'users', component: UsersComponent, data: {extraParameter: ''}},
+      {path: 'sitestats', component: SitestatsComponent, data: {extraParameter: ''}},
+
 
     ]
 

@@ -97,6 +97,8 @@ import { PageTitleComponent } from './layout/components/page-title/page-title.co
 import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurchase.component';
 import { UserstransactionComponent } from './Components/userstransaction/userstransaction.component';
 import { AddshopComponent } from './Elements/addshop/addshop.component';
+import { UsersComponent } from './Components/users/users.component';
+import { SitestatsComponent } from './Components/sitestats/sitestats.component';
 
 
 
@@ -181,6 +183,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ScantopurchaseComponent,
     UserstransactionComponent,
     AddshopComponent,
+    UsersComponent,
+    SitestatsComponent,
   ],
   imports: [
   
