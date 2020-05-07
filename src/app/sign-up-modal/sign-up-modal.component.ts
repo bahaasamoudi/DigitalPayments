@@ -26,6 +26,9 @@ export class SignUpModalComponent implements OnInit {
   lastName: FormControl;
   phoneNumber: FormControl;
   gender: FormControl;
+  id: FormControl;
+  birthday: FormControl;
+  country: FormControl;
   invalidRegister: boolean;
   errorList: string[];
   matcher = new MyErrorStateMatcher();
@@ -35,17 +38,7 @@ export class SignUpModalComponent implements OnInit {
   @Input('config2') set config2(value){
     this.classConfig = value;
   }
-  constructor(private fb: FormBuilder, private acct: AccountService, private router: Router ) {
-  //   // Get the modal
-  //   var signUpModal = document.getElementById('signup');
-    
-  //   // When the user clicks anywhere outside of the modal, close it
-  //   window.onclick = function(event) {
-  //     if (event.target == signUpModal) {
-  //       signUpModal.style.display = "none";
-  //     }
-  //   }
-   }
+  constructor(private fb: FormBuilder, private acct: AccountService, private router: Router ) { }
 
   ngOnInit() {
       this.username = new FormControl('', [Validators.required]);
@@ -55,7 +48,10 @@ export class SignUpModalComponent implements OnInit {
       this.firstName = new FormControl('', [Validators.required]);
       this.lastName = new FormControl('', [Validators.required]);
       this.phoneNumber = new FormControl('', [Validators.required]);
-      this.gender = new FormControl('', [Validators.required]);
+      this.gender = new FormControl('0', [Validators.required]);
+      this.id = new FormControl('', [Validators.required]);
+      this.birthday = new FormControl('', [Validators.required]);
+      this.country = new FormControl('', [Validators.required]);
 
       this.errorList = [];
       this.insertForm = this.fb.group({
@@ -66,7 +62,10 @@ export class SignUpModalComponent implements OnInit {
         'firstName': this.firstName,
         'lastName': this.lastName,
         'phoneNumber': this.phoneNumber,
-        'gender': this.gender
+        'gender': this.gender,
+        'id': this.id,
+        'birthday': this.birthday,
+        'country': this.country
       });
   }
 
@@ -94,17 +93,17 @@ export class SignUpModalComponent implements OnInit {
   
   onSubmit() {
     let userDetails = this.insertForm.value;
+    console.log(userDetails)
     this.acct.register(userDetails.username, userDetails.password, userDetails.email, userDetails.firstName, userDetails.lastName, 
-      userDetails.phoneNumber, "Palestine", +userDetails.gender)
+      userDetails.phoneNumber, userDetails.country, +userDetails.gender, userDetails.id, userDetails.birthday)
       .subscribe(result => {
-        this.router.navigate(['']);
+        this.router.navigate(['login']);
       }, error => {
-        this.errorList = [];
         this.invalidRegister = true;
-        console.log(userDetails.gender)
-        console.log(error)
-        for(var i = 0; i < error.error.value.length; i++) {
-          this.errorList.push(error.error.value[i]);
+        this.errorList = [];
+        var myErrors = error.error.value;
+        for(var i = 0; i < myErrors.length; i++) {
+          this.errorList.push(myErrors[i]);
         }
       });
 }

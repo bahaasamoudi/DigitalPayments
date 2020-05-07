@@ -20,7 +20,7 @@ export class LoginModalComponent implements OnInit {
   insertForm : FormGroup;
   Username :  FormControl;
   Password :  FormControl;
-  ErrorMessage: string;
+  errorList: string[];
   invalidLogin: boolean;
 
 
@@ -51,9 +51,12 @@ export class LoginModalComponent implements OnInit {
       this.router.navigate(['/dashboard'])
     },
     error => {
+      var myErrors = error.error.value;
       this.invalidLogin = true;
-      this.ErrorMessage = error.error.loginError;
-      console.log(this.ErrorMessage);
+      this.errorList = [];
+      for(var i = 0; i < myErrors.length; i++) {
+        this.errorList.push(myErrors[i]);
+      }
     })
 }
   }

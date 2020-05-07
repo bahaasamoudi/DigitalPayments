@@ -3,11 +3,13 @@
 		<div class="imgcontainer">
 			<h2 style="margin-bottom: 20px; padding-bottom: 20px;">Welcome</h2>
 			<img src="../../assets/images/user.png" alt="Avatar" class="avatar js-tilt" style="width: 100px; height: 100px;" data-tilt>
-			<div *ngIf = "invalidLogin" class = "text-danger">{{ErrorMessage}}</div>
+			<ul *ngIf = "invalidLogin" class = "list-unstyled alert alert-danger mt-3">
+				<li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+			</ul>
 		</div>
 		<div class="row">
 			<label for="uname" class="col-md-3"><b>Username</b></label>
-			<input type="text" class="col-md-9" placeholder="Enter Username Or Email" formControlName="Username" required>
+			<input type="text" class="col-md-9" placeholder="Enter Username" formControlName="Username" required>
 			<span *ngIf="Username.touched && Username.errors && Username.hasError('required')" class = "text-danger">Username is required</span>	
 		</div>
 		<div class="row">
@@ -17,9 +19,9 @@
 		</div>
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
 			<button type="submit" [disabled]="insertForm.invalid" class="col-md-8"> Login </button><br>
-			<div class=" col-md-4">
+			<!-- <div class=" col-md-4">
 				<span class="psw" >Forgot <a href="#">password?</a></span>
-			</div>
+			</div> -->
 		</div>
 		
 		<span>Don't have an account? / <a routerLink="/signup"><b>Sign Up</b></a> NOW!</span>

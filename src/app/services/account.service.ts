@@ -24,8 +24,10 @@ export class AccountService {
   private UserRole    = new BehaviorSubject<string>(localStorage.getItem('userRole'));
   private user$: Observable<User>;
 
-    register(username: string, password: string, email : string, firstName: string, lastName: string, phoneNumber: number,  country: string, gender: number) {
-      return this.http.post<any>(this.baseUrl + 'register', {username, password, email, firstName, lastName, phoneNumber,  country: "Palestine", gender, role: "User" }).pipe(map(result => {
+    register(username: string, password: string, email : string, firstName: string, lastName: string,
+       phoneNumber: number,  country: string, gender: number, idNumber: string, birthDate: Date) {
+      return this.http.post<any>(this.baseUrl + 'register', {username, password, email, firstName, lastName,
+         phoneNumber,  country: country, gender, idNumber, birthDate,   role: "User" }).pipe(map(result => {
           return result;
       }, error => {
           return error;

@@ -13,7 +13,7 @@
 					<div class="input-group">
 						<label class="label " for="first_name">first name</label>
 						<input class="input--style-4" type="text" formControlName="firstName" required>
-						<span *ngIf="firstName.hasError('required')" class = "text-danger">First Name is required</span>
+						<span *ngIf="firstName.touched && firstName.errors && firstName.hasError('required')" class = "text-danger">First Name is required</span>
 
 					</div>
 				</div>
@@ -21,7 +21,7 @@
 					<div class="input-group">
 						<label class="label " for="last_name">last name</label>
 						<input class="input--style-4" type="text" formControlName="lastName" required>
-						<span *ngIf="lastName.hasError('required')" class = "text-danger">Last Name is required</span>
+						<span *ngIf="lastName.touched && lastName.errors &&lastName.hasError('required')" class = "text-danger">Last Name is required</span>
 
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 						<label class="label" for="psw">Password</label>	
 						
 						<input class="input--style-4" type="password"  formControlName="password"  required>
-						<span *ngIf="password.hasError('required')" class = "text-danger">Password is required</span>
+						<span *ngIf="password.touched && password.errors && password.hasError('required')" class = "text-danger">Password is required</span>
 
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 						<div *ngIf="cpassword.touched && cpassword.errors">
 							<span *ngIf="cpassword.hasError('required')" class = "text-danger">Confirm Password is required</span>
 							<span *ngIf="cpassword.hasError('mustMatch')" class = "text-danger">Password Must Match</span>
-						  </div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -54,15 +54,17 @@
 					<div class="input-group">
 						<label class="label" for="email">Email</label>
 						<input class="input--style-4" type="email" formControlName="email"  required>
-						<span *ngIf="email.hasError('required')" class = "text-danger">Email is required</span>
-
+						<div *ngIf="email.touched && email.errors">
+							<span *ngIf="email.hasError('required')" class = "text-danger">Email is required</span>
+							<span *ngIf="email.hasError('email')" class = "text-danger">Enter A Valid Email Address</span>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="input-group">
 						<label class="label" for="phone">Phone Number</label>
 						<input class="input--style-4" type="text"  formControlName="phoneNumber" required>
-						<span *ngIf="email.hasError('required')" class = "text-danger">Phone Number is required</span>
+						<span *ngIf="phoneNumber.touched && phoneNumber.errors && phoneNumber.hasError('required')" class = "text-danger">Phone Number is required</span>
 					</div>
 				</div>
 			</div>
@@ -72,7 +74,7 @@
 					<div class="input-group">
 						<label class="label" for="username">Username</label>
 						<input class="input--style-4" type="text"  formControlName="username" required>
-						<span *ngIf="username.hasError('required')" class = "text-danger">Username is required</span>
+						<span *ngIf="username.touched && username.errors && username.hasError('required')" class = "text-danger">Username is required</span>
 						
 					</div>
                 </div>
@@ -87,11 +89,11 @@
 							<div class="row">
 								<div class="p-t-10 col-md-12">
 									<label class="radio-container m-r-45">Male
-										<input type="radio" checked="checked" formControlName="gender" value = "0">
+										<input type="radio"   checked="checked"  formControlName="gender" value = "0">
 										<span class="checkmark"></span>
 									</label>
 									<label class="radio-container">Female
-										<input type="radio" formControlName="gender" value = "1">
+										<input type="radio"  formControlName="gender" value = "1">
 										<span class="checkmark"></span>
 									</label>
 								</div>
@@ -103,50 +105,33 @@
 			<div class="row">
 				<div class="col-md-6 input-group">
 					<label for="id" class="label">ID Number</label>
-					<input type="text" name="id" id="" class="input--style-4" required>
-					<span *ngIf="username.hasError('required')" class = "text-danger">ID Number is required</span>
+					<input type="text" formControlName="id"  class="input--style-4" required>
+					<span *ngIf="id.touched && id.errors && id.hasError('required')" class = "text-danger">ID Number is required</span>
 				</div>
-				<div class="p-t-15 col-md-6">
-					<button class="btn btn--radius-2 btn--blue" style="width: 100%; margin-top: 20px;" type="submit" [disabled]="insertForm.invalid">Sign Up</button>
+				<div class="input-group col-md-6">
+					<label class="label">Birthday</label>
+					<input class="input--style-4" style="width: 100%;" type="date" formControlName="birthday" required>
+					<span *ngIf="birthday.touched && birthday.errors && birthday.hasError('required')" class = "text-danger">birthday is required</span>
 				</div>
 			</div>
 
-
-			<!-- <div class="row">
-				<div class="col-lg-12">
-					<div class="input-group">
-						<label class="label">Birthday</label>
-					    <div class="input-group-icon" style="width: 100%;">
-							<input class="input--style-4" style="width: 100%;" type="text" name="birthday" required>
-							<span class="fa fa-calendar input-icon"></span>
-						</div>
-                    </div>
-				</div>
 				
-			</div>  -->
-
-            <!-- <div class="row">
-                <div class="col-md-12">
-                    <div class="input-group">
-                        <label class="label" for="country">Country</label>
-                        <div class="">
-                            <select name="country">
-                                <option disabled="disabled" selected="selected">Choose Your City</option>
-                                <option>Nablus</option>
-                                <option>Tulkarm</option>
-                                <option>Ramallah</option>
-                            </select>
-                            <div class="select-dropdown"></div>
-                        </div>
-        </div> 
+			<div class="row">
+                <div class="col-lg-12">
+					<div class="input-group">
+						<label class="label" for="username">Country</label>
+						<input class="input--style-4" type="text"  formControlName="country" required>
+						<span *ngIf="country.touched && country.errors && country.hasError('required')" class = "text-danger">country is required</span>
+						
+					</div>
                 </div>
-            </div> -->
+            </div>
 			
 		</div>
 
-		<!-- <div class="p-t-15" style="width:50%;margin: auto;">
-			<button class="btn btn--radius-2 btn--blue" style="width: 100%;" type="submit" [disabled]="insertForm.invalid">Sign Up</button>
-		</div> -->
+		<div class="p-t-15 col-md-6">
+			<button class="btn btn--radius-2 btn--blue" style="width: 100%; margin-top: 20px;" type="submit" [disabled]="insertForm.invalid">Sign Up</button>
+		</div>
 	</form>
 </div>
 
