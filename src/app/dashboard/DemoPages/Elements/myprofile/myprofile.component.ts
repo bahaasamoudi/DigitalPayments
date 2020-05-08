@@ -20,6 +20,9 @@ export class MyprofileComponent implements OnInit {
   lastName: FormControl;
   phoneNumber: FormControl;
   gender: FormControl;
+  idnumber: FormControl;
+  country: FormControl;
+  birthdate: FormControl;
   balance: FormControl;
   invalidEdit: boolean;
   errorList: string[];
@@ -30,6 +33,7 @@ export class MyprofileComponent implements OnInit {
   invalidPasswordChange = null
   username  = null
   email = null
+  role = null
 
   
   constructor(private acct : AccountService,  private fb: FormBuilder) { 
@@ -44,7 +48,10 @@ export class MyprofileComponent implements OnInit {
         this.lastName = new FormControl(user.lastName, Validators.required);
         this.phoneNumber = new FormControl(user.phoneNumber, [Validators.required]);
         this.gender = new FormControl(user.gender, [Validators.required]);
-        this.balance = new FormControl(user.balance, [Validators.required]);
+        this.balance = new FormControl(user.balance);
+        this.idnumber = new FormControl(user.idnumber, [Validators.required]);
+        this.country = new FormControl(user.country, [Validators.required]);
+        this.birthdate = new FormControl(user.birthdate , [Validators.required]);
         this.genderValue = user.gender
         this.errorList = [];
    
@@ -55,10 +62,14 @@ export class MyprofileComponent implements OnInit {
           'gender': this.gender,
           'balance': this.balance,
           'phoneNumber': this.phoneNumber,
+          'idnumber': this.idnumber,
+          'country': this.country,
+          'birthdate': this.birthdate,
         });
 
         this.username = user.username
         this.email = user.email
+        this.role = user.role
         this.showform = true
 
       })
@@ -76,14 +87,13 @@ export class MyprofileComponent implements OnInit {
   }
 
   enableInputs(form) {
-    // var form = document.getElementById(form);
-    //   var elements = form.elements;
-    //   for (var i = 0, len = elements.length; i < len; ++i) {
-    //       elements[i].disabled = false;
-    //   }
-    //   document.getElementById('balance').disabled = true
-    //   document.getElementById('no-disabled-pass').disabled = true
-    //   document.getElementById('no-disabled-pers').disabled = true
+      var elements = (<HTMLInputElement>document.getElementById(form)).elements;
+      for (var i = 0, len = elements.length; i < len; ++i) {
+          elements[i].disabled = false;
+      }
+
+      (<HTMLInputElement>document.getElementById('balance')).disabled = true;
+      (<HTMLInputElement>document.getElementById('no-disabled-pass')).disabled = true
 
 
   }
@@ -109,16 +119,17 @@ export class MyprofileComponent implements OnInit {
 
   onSubmitPersonal() {
     let userDetails = this.personalInformationForm.value;
-    this.acct.changePersonalInformation(userDetails.firstName, userDetails.lastName, userDetails.phoneNumber, userDetails.gender)
+    this.acct.changePersonalInformation(userDetails.firstName, userDetails.lastName, userDetails.phoneNumber, userDetails.gender, userDetails.birthdate, userDetails.country, userDetails.idnumber)
       .subscribe(result => {
           this.invalidPersonalInformationChange = false
       }, error => {
         this.invalidPersonalInformationChange = true
         this.errorList = [];
-        var myErrors = error.error.errors
-        for(var key in myErrors) {
-          this.errorList.push(myErrors[key])
-        }
+        var myErrors = error.error.value;
+      this.errorList = [];
+      for(var i = 0; i < myErrors.length; i++) {
+        this.errorList.push(myErrors[i]);
+      }
 
       });
 }
@@ -129,25 +140,11 @@ onSubmitPasswordChange() {
         this.invalidPasswordChange = false
     }, error => {
       this.invalidPasswordChange = true
+      var myErrors = error.error.value;
       this.errorList = [];
-      var myErrors = error.error.errors
-      if(myErrors != null && myErrors != undefined){
-      for(var key in myErrors) {
-        console.log("1", error)
-        for(var i = 0; i < myErrors[key].length; i++) {
-          this.errorList.push(myErrors[key][i])
-        }
+      for(var i = 0; i < myErrors.length; i++) {
+        this.errorList.push(myErrors[i]);
       }
-    } else {
-      console.log("2", error)
-      for(var key in error.error) {
-        for(var i = 0; i < error.error[key].length; i++) {
-          this.errorList.push(error.error[key][i])
-        }
-        
-      }
-     
-    }
 
     });
 }

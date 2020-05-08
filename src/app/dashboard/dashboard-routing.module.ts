@@ -47,6 +47,7 @@ import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurch
 import { AddshopComponent } from './Elements/addshop/addshop.component';
 import { UsersComponent } from './Components/users/users.component';
 import { SitestatsComponent } from './Components/sitestats/sitestats.component';
+import { AuthGuardService } from '../guards/auth-duard.service';
 
 
 
@@ -57,7 +58,7 @@ const routes: Routes = [
     children: [
       {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
       {path: 'profile', component: MyprofileComponent , data: {extraParameter: 'dashboardsMenu'}},
-      {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}},
+      {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}, canActivate : [AuthGuardService]},
       {path: 'elements/notifications', component: NotificationsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'components/userstransaction', component: UserstransactionComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'scantopurchase', component: ScantopurchaseComponent , data: {extraParameter: 'dashboardsMenu'}},

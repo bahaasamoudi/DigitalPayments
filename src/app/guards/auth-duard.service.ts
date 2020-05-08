@@ -14,37 +14,49 @@ export class AuthGuardService implements CanActivate {
     canActivate( route: ActivatedRouteSnapshot, state : RouterStateSnapshot) : Observable<boolean> {
  
         return this.acct.isLoggesIn.pipe(take(1), map((loginStatus : boolean) => {
-          return true;
             const destination: string  = state.url;
             // const categoryId = route.params.id;
-            if((destination.includes('/dashboard'))) {
-              if(!loginStatus) {
-                this.router.navigate(['access-denied']);
+            if(destination.includes('/login') || destination.includes('/register')) {
+              if(loginStatus) {
+                this.router.navigate(['']);
                 return false;
               } else {
                 return true;
               }
-
+              
             }
-            // switch(destination) {
-            //     case '/dashboard/' : {
-            //     // If User Not Logged In And Try To Access Redirect To Login Page
-            //     if(!loginStatus) {
-            //         this.router.navigate(['access-denied']);
-            //         return false;
-            //       } else {
-            //         return true;
-            //       }
-            //         // if(localStorage.getItem("userRole") === 'Admin') {
-            //         //     return true;
-            //         // } else {
-            //         //   this.router.navigate(['access-denied'])
-            //         //   return false;
-            //         // }
-            //     }
-            //   default:
-            //         return false;
-            // }
+
+
+
+            if((destination.includes('/dashboard'))) {
+              if(!loginStatus) {
+                this.router.navigate(['access-denied']);
+                return false;
+              }
+            
+            }
+
+
+            switch(destination) {
+                case '/dashboard/addshop' : {
+                // If User Not Logged In And Try To Access Redirect To Login Page
+                if(!loginStatus) {
+                    this.router.navigate(['access-denied']);
+                    return false;
+                  } else {
+                    if(localStorage.getItem("userRole") === 'user') {
+                      return true;
+                    } else {
+                      this.router.navigate(['access-denied'])
+                      return false;
+                    }
+                
+                  }
+                 
+                }
+              default:
+                    return true;
+            }
         }));
     }
 

@@ -3,6 +3,7 @@ import {ThemeOptions} from '../../../theme-options';
 import {select} from '@angular-redux/store';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class SidebarComponent implements OnInit {
   public extraParameter: any;
 
-  constructor(public globals: ThemeOptions, private activatedRoute: ActivatedRoute) {
+  constructor(public globals: ThemeOptions, private activatedRoute: ActivatedRoute, private acct : AccountService) {
 
   }
 
@@ -20,6 +21,9 @@ export class SidebarComponent implements OnInit {
   private newInnerWidth: number;
   private innerWidth: number;
   activeId = 'dashboardsMenu';
+
+  UserRole : string;
+
 
   toggleSidebar() {
     this.globals.toggleSidebar = !this.globals.toggleSidebar;
@@ -30,6 +34,11 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+   this.acct.currentUserRole.subscribe(data => {
+      this.UserRole = data;
+      console.log(this.UserRole)
+    });
+
     setTimeout(() => {
       this.innerWidth = window.innerWidth;
       if (this.innerWidth < 1200) {

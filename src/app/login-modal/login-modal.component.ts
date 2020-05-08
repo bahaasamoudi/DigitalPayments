@@ -1,9 +1,4 @@
 import { Component, OnInit ,Inject,Input} from '@angular/core';
-
-import { UserProfileFormComponent } from '../user-profile-form/user-profile-form.component';
-
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
-import { NgClass } from '@angular/common';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AccountService } from '../services/account.service';

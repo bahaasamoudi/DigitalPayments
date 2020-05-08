@@ -1,6 +1,6 @@
 <div>
     
-    <form class="modal-content animate" action="/action_page.php" method="post" style="width: 500px;height:auto;margin-top: 0;">
+    <form class="modal-content animate" [formGroup]="shopForm" (ngSubmit)="onSubmit()"  style="width: 500px;height:auto;margin-top: 0;">
         <div class="imgcontainer" >
         <span onclick="document.getElementById('add_shop').style.display='none'" class="close" title="Close Modal">&times;</span>
         <img src="../../assets/images/shop.png"  alt="shop" class="avatar js-tilt" style="width: 100px; height: 100px;">
@@ -9,28 +9,40 @@
 
     <div class="container" style="height: auto;">
         <label for="shop-name"><b>Shop Name</b></label>
-        <input type="text" placeholder="Enter your shop name" name="shop-name" required>
-
+        <input type="text" placeholder="Enter your shop name"  formControlName="shopName" required>
+        <div *ngIf="shopName.touched && shopName.hasError('required')" class = "text-danger valid">Shop Name  is required</div>
+        
         <label for="service"><b>Type of services</b></label>
-        <input type="text" placeholder="Enter your provided services" name="service" required>
+        <input type="text" placeholder="Enter your provided services" formControlName="typeOfService" required>
+        <div *ngIf="typeOfService.touched && typeOfService.hasError('required')" class = "text-danger valid">Type Of Service  is required</div>
 
         <label for="website"><b>Shop website</b></label>
-        <input type="url" placeholder="Enter your website" name="website">
-        
+        <input type="url" placeholder="Enter your website" formControlName="shopWebsite">
+        <div *ngIf="shopWebsite.touched && shopWebsite.hasError('required')" class = "text-danger valid">Website  is required</div>
+
         
 
         <label for="phone"><b>Shop phone</b></label>
-        <input type="tel" placeholder="+970599999999" name="phone" required>
+        <input type="tel" placeholder="xxx-xxxxxxxx" formControlName="shopPhone" required>
+        <div *ngIf="shopPhone.touched && shopPhone.hasError('required')" class = "text-danger valid"> Phone Number  is required</div>
 
         <label for="website"><b>Description</b></label>
-        <input type="text"  name="description">
-        
+        <input type = "text"   placeholder="Write Description For Shop"  formControlName="shopDescription">
+        <div *ngIf="shopDescription.touched && shopDescription.hasError('required')" class = "text-danger valid">Description  is required</div>
+
+        <label for="website"><b>Location</b></label>
+        <input type="text" placeholder="Enter Location"  formControlName="shopLocation">
+        <div *ngIf="shopLocation.touched && shopLocation.hasError('required')" class = "text-danger valid">Location is required</div>
+
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
        
-        <button type="submit" class="savebtn green-btn ">Submit</button>
+        <button type="submit" class="savebtn green-btn " >Add Shop</button>
     </div>
+    <ul *ngIf = "invalidAdd == true" class = "list-unstyled alert alert-danger mt-3">
+        <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+      </ul>
     
     </form>
   </div>

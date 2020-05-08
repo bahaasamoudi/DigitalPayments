@@ -17,9 +17,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 // import { ContactUsComponent } from './contact-us/contact-us.component';
 ////////////////////////////////////
 
-import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
-import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ShopInfoTabComponent } from './shop-info-tab/shop-info-tab.component';
 import { ShopModalComponent } from './shop-modal/shop-modal.component';
@@ -63,10 +61,6 @@ import { JwtInterceptor } from './helpers/Jwt.Interceptor';
     SidebarComponent,
     // BrowseShopsComponent,
     ContactFormComponent,
-    // ContactUsComponent,
-    UserProfileFormComponent,
-    UserSidebarComponent,
-    UserProfileComponent,
     DropdownComponent,
     ShopInfoTabComponent,
     ShopModalComponent,
@@ -99,7 +93,7 @@ import { JwtInterceptor } from './helpers/Jwt.Interceptor';
 
     
     ],
-  entryComponents:[ UserProfileFormComponent,LoginModalComponent],
+  entryComponents:[ LoginModalComponent],
   providers: [
     AuthGuardService,{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],

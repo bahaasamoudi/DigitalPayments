@@ -10,4 +10,7 @@ export interface User {
     gender: number,
     typeOfService?: string, // can be null for normal user/admin
     website?: string, // can be null for normal user/admin
+    idnumber: string,
+    country: string,
+    birthdate: Date
 }

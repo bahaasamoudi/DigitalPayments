@@ -104,15 +104,13 @@ export class AccountService {
     }
 
     getUserInfo() : Observable<User> {
-      if (!this.user$) {
-          this.user$ = this.http.get<User>(this.baseUrl + 'GetUserInfo/').pipe(shareReplay());
-      }
+      this.user$ = this.http.get<User>(this.baseUrl + 'GetUserInfo/')
       // if categories cache exists return it
       return this.user$;
   }
 
-  changePersonalInformation(firstName: string, lastName: string, phoneNumber: number, gender: number) {
-    return this.http.post<any>(this.baseUrl + 'ChangePersonalInformation/', {firstName, lastName, phoneNumber,  gender}).pipe(map(result => {
+  changePersonalInformation(firstName: string, lastName: string, phoneNumber: number, gender: number, birthDate: Date, country: string, idnumber: string) {
+    return this.http.post<any>(this.baseUrl + 'ChangePersonalInformation/', {firstName, lastName, phoneNumber,  gender, country, birthDate, idnumber}).pipe(map(result => {
         return result;
     }, error => {
         return error;
@@ -121,6 +119,15 @@ export class AccountService {
 
   changePassword(currentPassword: string, newPassword: string) {
     return this.http.post<any>(this.baseUrl + 'ChangePassword/', {currentPassword, newPassword}).pipe(map(result => {
+        return result;
+    }, error => {
+        return error;
+    }));
+  }
+
+  AddShop(shopName: string, typeOfService: string, shopWebsite: string, shopPhone: string, shopLocation: string, description: string) {
+    return this.http.post<any>(this.baseUrl + 'AddShop/', 
+    {shopName, typeOfService, shopWebsite,  shopPhone, shopLocation, description}).pipe(map(result => {
         return result;
     }, error => {
         return error;

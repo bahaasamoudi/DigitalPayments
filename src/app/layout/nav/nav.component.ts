@@ -1,5 +1,4 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { UserProfileFormComponent } from 'src/app/user-profile-form/user-profile-form.component';
 import{MatDialog,MatDialogRef} from '@angular/material/dialog';
 import { LoginModalComponent } from 'src/app/login-modal/login-modal.component';
 import { AccountService } from 'src/app/services/account.service';
@@ -52,14 +51,8 @@ export class NavComponent implements OnInit {
     this.UserName$ = this.acct.currentUserName;
   }
  
-   openLoginDialog(): void {
-  this.dialog.open(LoginModalComponent);
 
- }
 
- openSignupDialog():void{
-  this.dialog.open(UserProfileFormComponent);
- }
 
 
 

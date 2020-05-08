@@ -24,7 +24,7 @@ class="vsm-title">My Profile</span></a></span>
            
          </ngb-panel>
       
-         <ngb-panel id="addshopmenu">
+         <ngb-panel id="addshopmenu" *ngIf="UserRole == 'user'">
            <ng-template ngbPanelHeader>
              <button  class="vsm-link">
                <i class="vsm-icon pe-7s-shopbag"></i>

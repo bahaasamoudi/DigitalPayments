@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserProfileFormComponent } from './user-profile-form/user-profile-form.component';
 import{MatDialog} from '@angular/material/dialog';
 
 @Component({
