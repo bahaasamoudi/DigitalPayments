@@ -1,1 +1,37 @@
 
+
+
+<app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon"></app-page-title>
+<div class="row">
+  <div class="m-auto">
+    <div class="card main-card mb-3">
+      <div class="card-header">
+        
+      </div>
+      <div class="card-body">
+         <ng-template #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">Purchase</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style='text-align: center;'>
+              <ul *ngIf = "invalidScan" class = "list-unstyled alert alert-danger mt-3">
+                <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+              </ul>
+                <div id="camera" ></div>
+             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+          </div>
+        </ng-template>
+        <div *ngIf = "success != ''" class = "text-success">
+          {{success}}
+        </div>
+        <button type = "submit" class = "btn btn-primary" (click) = "open(content)">Scan</button>
+      </div>
+    </div>
+</div>

@@ -40,32 +40,6 @@ export class ChargeComponent implements OnInit {
           });
   }
 
-  // openCentred(content) {
-  //   this.modalService.open(content, {centered: true});
-  // }
-
-  // openSmall(content) {
-  //   this.modalService.open(content, {
-  //     size: 'sm'
-  //   });
-  // }
-
-  // openLarge(content) {
-  //   this.modalService.open(content, {
-  //     size: 'lg'
-  //   });
-  // }
-
-  // private getDismissReason(reason: any): string {
-  //   if (reason === ModalDismissReasons.ESC) {
-  //     return 'by pressing ESC';
-  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-  //     return 'by clicking on a backdrop';
-  //   } else {
-  //     return `with: ${reason}`;
-  //   }
-  // }
-
   ngOnInit() {
     
   }

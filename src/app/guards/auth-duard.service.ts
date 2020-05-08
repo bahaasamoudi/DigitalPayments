@@ -15,7 +15,6 @@ export class AuthGuardService implements CanActivate {
  
         return this.acct.isLoggesIn.pipe(take(1), map((loginStatus : boolean) => {
             const destination: string  = state.url;
-            // const categoryId = route.params.id;
             if(destination.includes('/login') || destination.includes('/register')) {
               if(loginStatus) {
                 this.router.navigate(['']);
@@ -27,8 +26,7 @@ export class AuthGuardService implements CanActivate {
             }
 
 
-
-            if((destination.includes('/dashboard'))) {
+           if((destination.includes('/dashboard'))) {
               if(!loginStatus) {
                 this.router.navigate(['access-denied']);
                 return false;
@@ -36,24 +34,25 @@ export class AuthGuardService implements CanActivate {
             
             }
 
-
             switch(destination) {
                 case '/dashboard/addshop' : {
                 // If User Not Logged In And Try To Access Redirect To Login Page
-                if(!loginStatus) {
-                    this.router.navigate(['access-denied']);
-                    return false;
-                  } else {
                     if(localStorage.getItem("userRole") === 'user') {
                       return true;
                     } else {
                       this.router.navigate(['access-denied'])
                       return false;
                     }
-                
-                  }
                  
                 }
+                case '/dashboard/charge' : {
+                      if(localStorage.getItem("userRole") === 'admin' || localStorage.getItem("userRole") === 'shop' ) {
+                        return true;
+                      } else {
+                        this.router.navigate(['access-denied'])
+                        return false;
+                      }                     
+                  }
               default:
                     return true;
             }

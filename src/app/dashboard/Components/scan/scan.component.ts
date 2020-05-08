@@ -61,12 +61,12 @@ export class ScanComponent implements OnInit {
             that.errorList = []
             that.invalidScan = false;
           }, error => {
+           that.invalidScan = true;
+        
+            var myErrors = error.error.value;
             that.errorList = [];
-            that.invalidScan = true;
-            that.errorList.push(error.error);
-            console.log(error)
-            for(var i = 0; i < error.error.value.length; i++) {
-              that.errorList.push(error.error.value[i]);
+            for(var i = 0; i < myErrors.length; i++) {
+              that.errorList.push(myErrors[i]);
             }
           })
       

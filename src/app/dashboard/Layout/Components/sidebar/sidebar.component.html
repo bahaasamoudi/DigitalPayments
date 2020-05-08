@@ -17,7 +17,7 @@ Digital Payments
                <i class="vsm-icon pe-7s-user"></i>
                <span class="vsm-title"><a routerLink="/dashboard/profile" routerLinkActive="active-item"
                 [routerLinkActiveOptions]="{exact: true}" class="vsm-link"><span
-class="vsm-title">My Profile</span></a></span>
+                          class="vsm-title">My Profile</span></a></span>
               
              </button>
            </ng-template>
@@ -56,7 +56,7 @@ class="vsm-title">Add shop</span></a></span>
 
 
 
-         <ngb-panel id="componentsMenu">
+         <ngb-panel id="componentsMenu" *ngIf="UserRole == 'admin' || UserRole == 'shop'">
            <ng-template ngbPanelHeader>
              <button class="vsm-link">
                <i class="vsm-icon pe-7s-cash"></i>
