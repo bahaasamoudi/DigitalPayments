@@ -99,6 +99,10 @@ import { UserstransactionComponent } from './Components/userstransaction/userstr
 import { AddshopComponent } from './Elements/addshop/addshop.component';
 import { UsersComponent } from './Components/users/users.component';
 import { SitestatsComponent } from './Components/sitestats/sitestats.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -198,8 +202,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   
    ChartsModule,
    MatTabsModule,
-  
-
+   MatTableModule,
+   MatFormFieldModule,
+   MatPaginatorModule        ,
+   MatInputModule,
     // Angular Bootstrap Components
 
     FormsModule,

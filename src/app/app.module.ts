@@ -40,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccessDeniedComponent } from './components/errors/access-denied/access-denied.component';
 import { AuthGuardService } from './guards/auth-duard.service';
 import { JwtInterceptor } from './helpers/Jwt.Interceptor';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -76,6 +77,7 @@ import { JwtInterceptor } from './helpers/Jwt.Interceptor';
     ReactiveFormsModule,
     BrowserModule,
     MatTabsModule,
+    MatTableModule,
     AppRoutingModule,
     
     BrowserAnimationsModule,

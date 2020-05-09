@@ -27,7 +27,7 @@ export class AccountService {
     register(username: string, password: string, email : string, firstName: string, lastName: string,
        phoneNumber: number,  country: string, gender: number, idNumber: string, birthDate: Date) {
       return this.http.post<any>(this.baseUrl + 'register', {username, password, email, firstName, lastName,
-         phoneNumber,  country: country, gender, idNumber, birthDate,   role: "User" }).pipe(map(result => {
+         phoneNumber,  country: country, gender, idNumber, birthDate }).pipe(map(result => {
           return result;
       }, error => {
           return error;
@@ -108,6 +108,10 @@ export class AccountService {
       // if categories cache exists return it
       return this.user$;
   }
+
+  getUserTransactions() {
+    return this.http.get<any>(this.baseUrl + 'GetUserTransactions/')
+}
 
   changePersonalInformation(firstName: string, lastName: string, phoneNumber: number, gender: number, birthDate: Date, country: string, idnumber: string) {
     return this.http.post<any>(this.baseUrl + 'ChangePersonalInformation/', {firstName, lastName, phoneNumber,  gender, country, birthDate, idnumber}).pipe(map(result => {
