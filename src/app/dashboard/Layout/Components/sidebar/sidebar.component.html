@@ -107,7 +107,7 @@ class="vsm-title">Add shop</span></a></span>
         </ngb-panel>
 
 
-        <ngb-panel id="componentsMenu">
+        <ngb-panel id="componentsMenu" *ngIf="UserRole == 'admin'">
           <ng-template ngbPanelHeader>
             <button class="vsm-link">
               <i class="vsm-icon pe-7s-users"></i>
@@ -138,7 +138,7 @@ class="vsm-title">Add shop</span></a></span>
          </ngb-panel>
 
 
-         <ngb-panel id="tablesMenu">
+         <ngb-panel id="tablesMenu" *ngIf="UserRole == 'admin'">
           <ng-template ngbPanelHeader>
             <button ngbPanelToggle class="vsm-link">
               <i class="vsm-icon pe-7s-note"></i>

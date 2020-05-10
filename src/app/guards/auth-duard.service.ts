@@ -53,6 +53,15 @@ export class AuthGuardService implements CanActivate {
                         return false;
                       }                     
                   }
+
+                  case '/dashboard/users' : {
+                    if(localStorage.getItem("userRole") === 'admin' ) {
+                      return true;
+                    } else {
+                      this.router.navigate(['access-denied'])
+                      return false;
+                    }                     
+                }
               default:
                     return true;
             }
