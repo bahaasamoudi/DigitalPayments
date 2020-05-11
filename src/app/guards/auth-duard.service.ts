@@ -54,7 +54,9 @@ export class AuthGuardService implements CanActivate {
                       }                     
                   }
 
-                  case '/dashboard/users' : {
+                  case '/dashboard/users' : 
+                  case '/dashboard/sitestats' : {
+
                     if(localStorage.getItem("userRole") === 'admin' ) {
                       return true;
                     } else {
@@ -62,6 +64,7 @@ export class AuthGuardService implements CanActivate {
                       return false;
                     }                     
                 }
+               
               default:
                     return true;
             }
