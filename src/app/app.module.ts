@@ -9,7 +9,6 @@ import { WrapComponent } from './layout/wrap/wrap.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
-import { PostShopComponent } from './post-shop/post-shop.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 ///////////////////////////////////////
 // import { BrowseShopsComponent } from './browse-shops/browse-shops.component';
@@ -41,6 +40,7 @@ import { AccessDeniedComponent } from './components/errors/access-denied/access-
 import { AuthGuardService } from './guards/auth-duard.service';
 import { JwtInterceptor } from './helpers/Jwt.Interceptor';
 import {MatTableModule} from '@angular/material/table';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 
 
@@ -58,7 +58,6 @@ import {MatTableModule} from '@angular/material/table';
    
     LoginModalComponent,
     SignUpModalComponent,
-    PostShopComponent,
     SidebarComponent,
     // BrowseShopsComponent,
     ContactFormComponent,
@@ -68,7 +67,7 @@ import {MatTableModule} from '@angular/material/table';
     routingComponents,
     HomeComponent,
     AccessDeniedComponent,
-  
+    JwPaginationComponent
     
     // TestComponent,
   ],

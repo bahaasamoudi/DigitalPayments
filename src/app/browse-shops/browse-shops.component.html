@@ -1,22 +1,50 @@
 <app-nav></app-nav>
-<app-wrap [parentTitle] = "title"></app-wrap>
+<app-wrap [parentTitle]="title"></app-wrap>
 
-
-<div class="container">
+    <div class="container" >
     <div class="row">
         <div class="col-md-9">
-            <app-post-shop></app-post-shop>
-            <app-post-shop></app-post-shop>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    
-                </div>
+        <div class="job-post-item p-4 d-block d-lg-flex align-items-center" *ngFor="let shop of pageOfItems">
+            <div class="one-third mb-4 mb-md-0" style="padding: 15px;">
+            <div class="job-post-item-header align-items-center">
+                <h3
+                class="mr-3 text-black"
+                style="padding: 15px 0; cursor: pointer;"
+                >
+                    {{shop.shopName}}
+                </h3>
             </div>
+            <div class="job-post-item-body d-block d-md-flex">
+                <div class="mr-3">
+                <i class="fa fa-wpforms"></i>
+                <p style="padding: 5px 0; cursor: pointer;">
+                    {{shop.description}}
+                </p>
+                </div>
+                <div><i class="fa fa-location-arrow"></i><span> {{shop.location}}</span></div>
+            </div>
+            </div>
+    
+        </div>
+        <jw-pagination [items]="shops" (changePage)="onChangePage($event)" ></jw-pagination>
+
+        <div class="row mt-5">
+            <div class="col text-center"></div>
+        </div>
         </div>
         <div class="col-md-3">
-            <app-sidebar></app-sidebar>
+            <div class="sidebar-box bg-white p-4">
+                <h3 class="heading-sidebar heading-3">Browse Shop</h3>
+                <form action="#" class="search-form mb-3">
+                    <div class="form-group  row">
+                        <input matInput  class="form-control col-sm -10" #searchInput placeholder="Search...">
+                        <i class="icon fa fa-search col-sm-2" (click) = applyFilter()></i>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+    </div>
+
 
 <app-footer></app-footer>

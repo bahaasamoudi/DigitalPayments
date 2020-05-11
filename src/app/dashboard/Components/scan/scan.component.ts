@@ -54,7 +54,11 @@ export class ScanComponent implements OnInit {
           Quagga.start();
         });
         Quagga.onDetected(function(data) {
+          
+          
          
+
+
           that.transactionService.charge(data.codeResult.code).subscribe(data => {
             that.modalService.dismissAll();
             that.success = "Successful"
@@ -69,8 +73,9 @@ export class ScanComponent implements OnInit {
               that.errorList.push(myErrors[i]);
             }
           })
-      
+     
         });
+      
          
   }
 

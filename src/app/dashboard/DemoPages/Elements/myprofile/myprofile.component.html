@@ -3,10 +3,10 @@
     
     <div class="card-deck">
         
-        <ng-container *ngIf='!showform'>
+        <ng-container *ngIf='showform'>
             Loading
         </ng-container>
-        <ng-container *ngIf='showform'>
+        <ng-container *ngIf='!showform'>
             <form   [formGroup]="personalInformationForm" (ngSubmit)="onSubmitPersonal()" id = "personalForm">
                 <div class="card">
                     <div class="card-body">
