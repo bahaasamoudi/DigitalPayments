@@ -55,7 +55,8 @@ export class AuthGuardService implements CanActivate {
                   }
 
                   case '/dashboard/users' : 
-                  case '/dashboard/sitestats' : {
+                  case '/dashboard/sitestats' : 
+                  case '/dashboard/messages' : {
 
                     if(localStorage.getItem("userRole") === 'admin' ) {
                       return true;

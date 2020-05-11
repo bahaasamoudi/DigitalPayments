@@ -48,6 +48,7 @@ import { AddshopComponent } from './Elements/addshop/addshop.component';
 import { UsersComponent } from './Components/users/users.component';
 import { SitestatsComponent } from './Components/sitestats/sitestats.component';
 import { AuthGuardService } from '../guards/auth-duard.service';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -69,6 +70,7 @@ const routes: Routes = [
       {path: 'scantopurchase', component: ScantopurchaseComponent, data: {extraParameter: ''}},
       {path: 'users', component: UsersComponent, data: {extraParameter: ''}},
       {path: 'sitestats', component: SitestatsComponent, data: {extraParameter: ''}},
+      {path: 'messages', component: MessagesComponent, data: {extraParameter: ''},canActivate : [AuthGuardService]}
 
 
     ]

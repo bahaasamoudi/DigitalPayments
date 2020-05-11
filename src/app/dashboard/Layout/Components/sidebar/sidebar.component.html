@@ -106,6 +106,8 @@ class="vsm-title">Add shop</span></a></span>
 
         </ngb-panel>
 
+        
+
 
         <ngb-panel id="componentsMenu" *ngIf="UserRole == 'admin'">
           <ng-template ngbPanelHeader>
@@ -113,6 +115,18 @@ class="vsm-title">Add shop</span></a></span>
               <i class="vsm-icon pe-7s-users"></i>
               <span class="vsm-title">  <a routerLinkActive="active-item" routerLink="users" class="vsm-link"> <span
                 class="vsm-title">Users </span></a></span>
+             
+            </button>
+          </ng-template>
+
+        </ngb-panel>
+
+        <ngb-panel id="componentsMenu" *ngIf="UserRole == 'admin'">
+          <ng-template ngbPanelHeader>
+            <button class="vsm-link">
+              <i class="vsm-icon pe-7s-users"></i>
+              <span class="vsm-title">  <a routerLinkActive="active-item" routerLink="messages" class="vsm-link"> <span
+                class="vsm-title">Messages </span></a></span>
              
             </button>
           </ng-template>
