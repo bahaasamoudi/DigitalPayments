@@ -16,6 +16,10 @@ export class ReportsService {
     return this.http.get<any>(this.baseUrl + 'GetProfits/')
     }
 
+    getBillsForShops() {
+      return this.http.get<any>(this.baseUrl + 'GetBillsForShops/')
+    }
+
 
  
 

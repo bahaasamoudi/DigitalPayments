@@ -104,6 +104,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { MessagesComponent } from './messages/messages.component';
+import { BillsComponent } from './bills/bills.component';
 
 
 
@@ -191,6 +192,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UsersComponent,
     SitestatsComponent,
     MessagesComponent,
+    BillsComponent,
   ],
   imports: [
   

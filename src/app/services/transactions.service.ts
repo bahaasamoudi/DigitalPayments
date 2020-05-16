@@ -24,10 +24,15 @@ export class TransactionsService {
     return this.http.post<any>(this.baseUrl + 'Charge', {Barcode});
 }
 
-purchase(Barcode: string) {
-    
-  return this.http.post<any>(this.baseUrl + 'Purchase', {Barcode});
-}
+    purchase(Barcode: string) {
+        
+      return this.http.post<any>(this.baseUrl + 'Purchase', {Barcode});
+    }
+
+    GetBill(BillId: number) {
+        
+      return this.http.post<any>(this.baseUrl + 'GetBill', {BillId});
+    }
 
  
 }

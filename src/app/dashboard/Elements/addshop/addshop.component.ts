@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
+import { ShopsService } from 'src/app/services/shops.service';
 
 @Component({
   selector: 'app-addshop',
@@ -21,7 +22,7 @@ export class AddshopComponent implements OnInit {
   errorList: string[];
 
   
-  constructor(private acct : AccountService,  private fb: FormBuilder,private router : Router) { 
+  constructor(private shopService : ShopsService,  private fb: FormBuilder,private router : Router) { 
 
   }
 
@@ -50,12 +51,12 @@ export class AddshopComponent implements OnInit {
 
   onSubmit() {
     let formDetails = this.shopForm.value;
-    this.acct.AddShop(formDetails.shopName, formDetails.typeOfService, formDetails.shopWebsite, formDetails.shopPhone,
+    this.shopService.AddShop(formDetails.shopName, formDetails.typeOfService, formDetails.shopWebsite, formDetails.shopPhone,
       formDetails.shopLocation, formDetails.shopDescription)
       .subscribe(result => {
           this.invalidAdd = false
-          alert("Shop added sucsseffuly, you Will Logout Automaticlly")
-          this.acct.logout()
+          // alert("Shop added sucsseffuly, you Will Logout Automaticlly")
+          // this.acct.logout()
       }, error => {
         console.log(error)
         this.invalidAdd = true

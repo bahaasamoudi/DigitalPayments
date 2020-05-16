@@ -133,14 +133,7 @@ getAllUsers() {
     }));
   }
 
-  AddShop(shopName: string, typeOfService: string, shopWebsite: string, shopPhone: string, shopLocation: string, description: string) {
-    return this.http.post<any>(this.baseUrl + 'AddShop/', 
-    {shopName, typeOfService, shopWebsite,  shopPhone, shopLocation, description}).pipe(map(result => {
-        return result;
-    }, error => {
-        return error;
-    }));
-  }
+  
   
   
 

@@ -87,7 +87,7 @@ export class MyprofileComponent implements OnInit {
   }
 
   enableInputs(form) {
-      var elements = (<HTMLInputElement>document.getElementById(form)).elements;
+      var elements = form.elements;
       for (var i = 0, len = elements.length; i < len; ++i) {
           elements[i].disabled = false;
       }

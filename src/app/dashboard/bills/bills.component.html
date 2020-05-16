@@ -1,0 +1,44 @@
+<ul *ngIf = "invalid == true" class = "list-unstyled alert alert-danger mt-3">
+    <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+  </ul>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Month/Year </th>
+        <td mat-cell *matCellDef="let row"> {{row.month}}/{{row.year}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="ShopName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Shop Name</th>
+        <td mat-cell *matCellDef="let row"> {{row.shopName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ShopPhone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Shop Phone</th>
+        <td mat-cell *matCellDef="let row"> {{row.shopPhone}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Receivables">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Receivables</th>
+        <td mat-cell *matCellDef="let row"> {{row.receivables}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="GotIt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Got It</th>
+        <td mat-cell *matCellDef="let row"> <button (click) = "gotBill(row.billId)">Got It</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  
+  
