@@ -41,4 +41,8 @@ export class ShopsService {
   GetNotAccesptedShops() {
     return this.http.get<any>(this.baseUrl + 'GetNotAccesptedShops/')
   }
+
+  GetShopInformation() {
+    return this.http.get<any>(this.baseUrl + 'GetShopInformation/')
+  }
 }

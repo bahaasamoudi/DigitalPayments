@@ -36,7 +36,6 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
    this.acct.currentUserRole.subscribe(data => {
       this.UserRole = data;
-      console.log(this.UserRole)
     });
 
     setTimeout(() => {

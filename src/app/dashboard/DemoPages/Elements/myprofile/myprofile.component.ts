@@ -3,6 +3,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { User } from 'src/app/dashboard/interfaces/user';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/sign-up-modal/sign-up-modal.component';
+import { ShopsService } from 'src/app/services/shops.service';
 
 @Component({
   selector: 'app-myprofile',
@@ -13,9 +14,12 @@ export class MyprofileComponent implements OnInit {
  
   changePasswordForm: FormGroup;
   personalInformationForm: FormGroup;
+  ShopInformationForm: FormGroup;
+
   currentPassword: FormControl;
   newPassword: FormControl;
   confirmNewPassword: FormControl;
+
   firstName: FormControl;
   lastName: FormControl;
   phoneNumber: FormControl;
@@ -24,23 +28,41 @@ export class MyprofileComponent implements OnInit {
   country: FormControl;
   birthdate: FormControl;
   balance: FormControl;
+
+  shopName: FormControl;
+  location: FormControl;
+  phone: FormControl;
+  typeOfService: FormControl;
+  website: FormControl;
+  description: FormControl;
+
   invalidEdit: boolean;
   errorList: string[];
   matcher = new MyErrorStateMatcher();
   showform = false
   genderValue = null
+
   invalidPersonalInformationChange = null
   invalidPasswordChange = null
+  invalidShopChange = null
+
   username  = null
   email = null
   role = null
 
-  
-  constructor(private acct : AccountService,  private fb: FormBuilder) { 
+  UserRole : string;
+
+  constructor(private acct : AccountService,  private fb: FormBuilder, private shopsService : ShopsService,) { 
 
   }
 
   ngOnInit() {
+
+      this.acct.currentUserRole.subscribe(data => {
+        this.UserRole = data;
+      });
+
+
       this.acct.getUserInfo().subscribe(user => {
         this.username = new FormControl(user.username, [Validators.required]);
         this.email = new FormControl(user.email, [Validators.required, Validators.email]);
@@ -70,8 +92,12 @@ export class MyprofileComponent implements OnInit {
         this.username = user.username
         this.email = user.email
         this.role = user.role
-        this.showform = true
 
+        if(this.UserRole == 'shop') {
+            this.getShopInformtion();
+        } else {
+          this.showform = true
+        }
       })
 
       this.currentPassword = new FormControl('', [Validators.required]);
@@ -87,7 +113,8 @@ export class MyprofileComponent implements OnInit {
   }
 
   enableInputs(form) {
-      var elements = form.elements;
+     let  myform = (<HTMLInputElement>document.getElementById(form));
+      var elements = myform.elements;
       for (var i = 0, len = elements.length; i < len; ++i) {
           elements[i].disabled = false;
       }
@@ -133,6 +160,29 @@ export class MyprofileComponent implements OnInit {
 
       });
 }
+
+onSubmitShop() {
+  let shopDetails = this.ShopInformationForm.value;
+  this.acct.changeShopInformation(shopDetails.shopName, shopDetails.location, shopDetails.phone, shopDetails.typeOfService, shopDetails.website
+                        , shopDetails.description)
+    .subscribe(result => {
+        this.invalidShopChange = false
+    }, error => {
+      this.invalidShopChange = true
+      this.errorList = [];
+      var myErrors = error.error.value;
+    this.errorList = [];
+    for(var i = 0; i < myErrors.length; i++) {
+      this.errorList.push(myErrors[i]);
+    }
+
+    });
+}
+
+
+
+
+
 onSubmitPasswordChange() {
   let userDetails = this.changePasswordForm.value;
   this.acct.changePassword(userDetails.currentPassword, userDetails.newPassword )
@@ -148,4 +198,31 @@ onSubmitPasswordChange() {
 
     });
 }
+
+getShopInformtion() {
+  this.shopsService.GetShopInformation().subscribe(shop => {
+
+    this.shopName = new FormControl(shop.shopName, [Validators.required]);
+    this.location = new FormControl(shop.location, [Validators.required, Validators.email]);
+    this.phone = new FormControl(shop.phone, Validators.required);
+    this.typeOfService = new FormControl(shop.typeOfService, Validators.required);
+    this.website = new FormControl(shop.website, [Validators.required]);
+    this.description = new FormControl(shop.description, [Validators.required]);
+
+    this.ShopInformationForm = this.fb.group({
+      'shopName': this.shopName,
+      'location': this.location,
+      'phone': this.phone,
+      'typeOfService': this.typeOfService,
+      'website': this.website,
+      'description': this.description,
+    });
+
+    this.showform = true
+
+  }
+  )
+}
+
+
 }

@@ -131,6 +131,14 @@ export class AccountService {
     }));
   }
 
+  changeShopInformation(shopName: string, location: string, phone: number, typeOfService: number, website: Date, description: string) {
+    return this.http.post<any>(this.baseUrl + 'ChangeShopInformation/', {shopName, location, phone,  typeOfService, website, description}).pipe(map(result => {
+        return result;
+    }, error => {
+        return error;
+    }));
+  }
+
   
   
   
