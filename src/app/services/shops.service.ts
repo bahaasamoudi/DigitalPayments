@@ -28,4 +28,17 @@ export class ShopsService {
         return error;
     }));
   }
+
+  AcceptShop(shopId: string) {
+    return this.http.post<any>(this.baseUrl + 'AcceptShop/', 
+    {shopId}).pipe(map(result => {
+        return result;
+    }, error => {
+        return error;
+    }));
+  }
+
+  GetNotAccesptedShops() {
+    return this.http.get<any>(this.baseUrl + 'GetNotAccesptedShops/')
+  }
 }

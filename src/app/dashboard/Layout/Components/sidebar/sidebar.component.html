@@ -144,8 +144,17 @@ class="vsm-title">Add shop</span></a></span>
           </ng-template>
 
         </ngb-panel>
+        <ngb-panel id="componentsMenu" *ngIf="UserRole == 'admin'">
+          <ng-template ngbPanelHeader>
+            <button class="vsm-link">
+              <i class="vsm-icon pe-7s-users"></i>
+              <span class="vsm-title">  <a routerLinkActive="active-item" routerLink="pendingshops" class="vsm-link"> <span
+                class="vsm-title">Pending Shops </span></a></span>
+             
+            </button>
+          </ng-template>
 
-
+        </ngb-panel>
          <ngb-panel id="tablesMenu" *ngIf="UserRole == 'admin'">
           <ng-template ngbPanelHeader>
             <button ngbPanelToggle class="vsm-link">

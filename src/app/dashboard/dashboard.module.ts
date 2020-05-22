@@ -105,6 +105,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { MessagesComponent } from './messages/messages.component';
 import { BillsComponent } from './bills/bills.component';
+import { NotAcceptedShopsComponent } from './not-accepted-shops/not-accepted-shops.component';
 
 
 
@@ -193,6 +194,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SitestatsComponent,
     MessagesComponent,
     BillsComponent,
+    NotAcceptedShopsComponent,
   ],
   imports: [
   
