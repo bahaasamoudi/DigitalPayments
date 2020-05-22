@@ -113,9 +113,7 @@ export class AccountService {
     return this.http.get<any>(this.baseUrl + 'GetUserTransactions/')
 }
 
-getAllUsers() {
-  return this.http.get<any>(this.baseUrl + 'GetAllUsers/')
-}
+
 
   changePersonalInformation(firstName: string, lastName: string, phoneNumber: number, gender: number, birthDate: Date, country: string, idnumber: string) {
     return this.http.post<any>(this.baseUrl + 'ChangePersonalInformation/', {firstName, lastName, phoneNumber,  gender, country, birthDate, idnumber}).pipe(map(result => {

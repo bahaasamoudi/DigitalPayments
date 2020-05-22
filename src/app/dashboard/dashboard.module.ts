@@ -92,7 +92,6 @@ import {DoughnutChartComponent} from './DemoPages/Charts/chartjs/examples/doughn
 import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/pie-chart.component';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { NotificationsComponent } from './DemoPages/Elements/notifications/notifications.component';
 import { PageTitleComponent } from './layout/components/page-title/page-title.component';
 import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurchase.component';
 import { UserstransactionComponent } from './Components/userstransaction/userstransaction.component';
@@ -185,7 +184,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BubbleChartComponent,
     ScatterChartComponent,
     DropdownsComponent,
-    NotificationsComponent,
     PageTitleComponent,
     ScantopurchaseComponent,
     UserstransactionComponent,

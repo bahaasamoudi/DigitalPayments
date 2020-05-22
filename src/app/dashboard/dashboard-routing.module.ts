@@ -41,7 +41,6 @@ import {ChartjsComponent} from './DemoPages/Charts/chartjs/chartjs.component';
 import { ShopInfoTabComponent } from '../shop-info-tab/shop-info-tab.component';
 import { MyprofileComponent } from './DemoPages/Elements/myprofile/myprofile.component';
 import { ScanComponent } from './Components/scan/scan.component';
-import { NotificationsComponent } from './DemoPages/Elements/notifications/notifications.component';
 import { UserstransactionComponent } from './Components/userstransaction/userstransaction.component';
 import { ScantopurchaseComponent } from './Components/scantopurchase/scantopurchase.component';
 import { AddshopComponent } from './Elements/addshop/addshop.component';
@@ -62,7 +61,6 @@ const routes: Routes = [
       {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
       {path: 'profile', component: MyprofileComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}, canActivate : [AuthGuardService]},
-      {path: 'elements/notifications', component: NotificationsComponent, data: {extraParameter: 'elementsMenu'}},
       {path: 'components/userstransaction', component: UserstransactionComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'scantopurchase', component: ScantopurchaseComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'charge', component: ChargeComponent, data: {extraParameter: 'componentsMenu'}},
