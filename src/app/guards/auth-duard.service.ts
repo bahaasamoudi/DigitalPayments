@@ -15,7 +15,7 @@ export class AuthGuardService implements CanActivate {
  
         return this.acct.isLoggesIn.pipe(take(1), map((loginStatus : boolean) => {
             const destination: string  = state.url;
-            if(destination.includes('/login') || destination.includes('/register')) {
+            if(destination.includes('/login') || destination.includes('/signup')) {
               if(loginStatus) {
                 this.router.navigate(['']);
                 return false;

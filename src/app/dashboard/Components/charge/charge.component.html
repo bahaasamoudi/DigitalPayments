@@ -7,13 +7,16 @@
         
       </div>
       <div class="card-body">
+        <ul *ngIf = "invalidGenerate" class = "list-unstyled alert alert-danger mt-3">
+          <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
+        </ul>
         <span  class="kt-section__sub">
           <pre>Enter Money Amount You Want To Charge</pre>
         </span>
         <div class="divider"></div>
          <ng-template #content let-c="close" let-d="dismiss">
           <div class="modal-header">
-            <h4 class="modal-title">Basic demo</h4>
+            <h4 class="modal-title">Generate Barcode</h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -28,11 +31,16 @@
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </ng-template>
-        <form #form = "ngForm" (ngSubmit) = "generateBarCode(content, form)"> 
+        <form [formGroup]="form" (ngSubmit) = "generateBarCode(content)"> 
           <div class="input-group mb-4">
             <div class="input-group-prepend"><span class="input-group-text">Nis</span></div>
-            <input placeholder="Amount" ngModel name = "codeText"  #codeText = "ngModel" step="1" min = "1"  max = "500" type="number" class="form-control" required>
+            <input placeholder="Amount"  name = "codeText"  formControlName="amount" step="1" min = "1"  max = "500" type="number" class="form-control" required>
             <div class="input-group-append"><span class="input-group-text">.00</span></div>
+          </div>
+          <div *ngIf="amount.touched && amount.hasError('required')" class = "text-danger valid">amount is required</div>
+          <div class="input-group mb-4">
+            <input type="radio" checked="checked"  formControlName="usedFor" value = "purchase"> <span class = "mx-3"> purchase</span>
+            <input type="radio" checked="checked"  formControlName="usedFor" value = "charge"> <span class = "mx-3"> charge</span> 
           </div>
         <button type = "submit" class = "btn btn-primary" [disabled] = "form.invalid">Generate</button>
       </form>

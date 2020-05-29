@@ -17,6 +17,7 @@ export class ShopsService {
 
 
   GetSearchShops(SearchText) {
+    
     return this.http.post<any>(this.baseUrl + 'SearchShopes/', {SearchText});
   }
 

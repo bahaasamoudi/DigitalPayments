@@ -14,9 +14,9 @@ export class TransactionsService {
   private baseUrl = environment.baseUrl + 'Transactions/';
 
   // Insert the Category
-  generateBarcode(Amount) {
+  generateBarcode(Amount, UsedFor) {
     
-      return this.http.post<any>(this.baseUrl + 'GenerateBarcode', {Amount});
+      return this.http.post<any>(this.baseUrl + 'GenerateBarcode', {Amount, UsedFor});
   }
 
   charge(Barcode: string) {

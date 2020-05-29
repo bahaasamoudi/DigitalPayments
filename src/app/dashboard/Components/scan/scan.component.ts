@@ -64,6 +64,7 @@ export class ScanComponent implements OnInit {
             that.success = "Successful"
             that.errorList = []
             that.invalidScan = false;
+            Quagga.stop()
           }, error => {
            that.invalidScan = true;
         

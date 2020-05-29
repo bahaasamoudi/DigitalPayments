@@ -58,7 +58,7 @@ const routes: Routes = [
     path: '',
     component: BaseLayoutComponent,
     children: [
-      {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
+      {path: '', component: UserstransactionComponent, data: {extraParameter: 'dashboardsMenu'}},
       {path: 'profile', component: MyprofileComponent , data: {extraParameter: 'dashboardsMenu'}},
       {path: 'addshop', component: AddshopComponent , data: {extraParameter: 'dashboardsMenu'}, canActivate : [AuthGuardService]},
       {path: 'components/userstransaction', component: UserstransactionComponent , data: {extraParameter: 'dashboardsMenu'}},
