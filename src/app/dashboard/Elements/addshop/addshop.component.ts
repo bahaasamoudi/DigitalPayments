@@ -20,7 +20,6 @@ export class AddshopComponent implements OnInit {
   shopDescription: FormControl;
   invalidAdd = null;
   errorList: string[];
-
   
   constructor(private shopService : ShopsService,  private fb: FormBuilder,private router : Router) { 
 

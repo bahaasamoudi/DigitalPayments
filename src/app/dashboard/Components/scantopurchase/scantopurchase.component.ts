@@ -18,6 +18,7 @@ export class ScantopurchaseComponent implements OnInit {
   errorList: string[];
   closeResult: string;
   success: string;
+  done = false
   constructor(private modalService: NgbModal, private transactionService: TransactionsService) { }
 
 
@@ -29,7 +30,9 @@ export class ScantopurchaseComponent implements OnInit {
      
     }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  
+      Quagga.stop()
+      that.done = false;
+
           });
 
            // this.closeResult = `Closed with: ${result}`;
@@ -54,12 +57,14 @@ export class ScantopurchaseComponent implements OnInit {
           Quagga.start();
         });
         Quagga.onDetected(function(data) {
-         
+          if(that.done == false) {
+            that.done = true;
           that.transactionService.purchase(data.codeResult.code).subscribe(data => {
             that.modalService.dismissAll();
             that.success = "Successful"
             that.errorList = []
             that.invalidScan = false;
+         
           }, error => {
            that.invalidScan = true;
         
@@ -69,6 +74,7 @@ export class ScantopurchaseComponent implements OnInit {
               that.errorList.push(myErrors[i]);
             }
           })
+        }
       
         });
          

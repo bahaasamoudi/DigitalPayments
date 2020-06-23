@@ -74,7 +74,7 @@
                             <div *ngIf="gender.touched && gender.hasError('required')" class = "text-danger valid">Gender is required</div>
                     </div>
                     <div class="card-footer">
-                        <input type="submit" class = "btn btn-primary" value = "Change" id = "no-disabled-pers" [disabled]="personalInformationForm.invalid || !enablePersonalChange "/>
+                        <input type="submit" class = "btn btn-primary" value = "Change" id = "no-disabled-pers" >
                         <div *ngIf = "invalidPersonalInformationChange == false" class = "alert alert-success mt-3">Change Success</div>
                         <ul *ngIf = "invalidPersonalInformationChange == true" class = "list-unstyled alert alert-danger mt-3">
                             <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
@@ -117,7 +117,7 @@
                         </div>
                 </div>
                 <div class="card-footer">
-                    <input type="submit" class = "btn btn-primary " id = "no-disabled-pass" value = "Change" [disabled]="changePasswordForm.invalid"/>
+                    <input type="submit" class = "btn btn-primary " id = "no-disabled-pass" value = "Change"/>
                     <div *ngIf = "invalidPasswordChange == false" class = "alert alert-success mt-3">Change Success</div>
                     <ul *ngIf = "invalidPasswordChange == true" class = "list-unstyled alert alert-danger mt-3">
                         <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
@@ -179,7 +179,7 @@
                     
                     </div>
                 <div class="card-footer">
-                    <input type="submit" class = "btn btn-primary" value = "Change" id = "no-disabled-pers" [disabled]="ShopInformationForm.invalid"/>
+                    <input type="submit" class = "btn btn-primary" value = "Change" id = "no-disabled-pers"/>
                     <div *ngIf = "invalidShopChange == false" class = "alert alert-success mt-3">Change Success</div>
                     <ul *ngIf = "invalidShopChange == true" class = "list-unstyled alert alert-danger mt-3">
                         <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>

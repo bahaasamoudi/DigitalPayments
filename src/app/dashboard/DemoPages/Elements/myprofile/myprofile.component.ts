@@ -113,11 +113,19 @@ export class MyprofileComponent implements OnInit {
   }
 
   enableInputs(form) {
-     let  myform = (<HTMLInputElement>document.getElementById(form));
-      var elements = myform.elements;
-      for (var i = 0, len = elements.length; i < len; ++i) {
-          elements[i].disabled = false;
-      }
+
+    if(form == 'personalForm') {
+
+      this.personalInformationForm.enable();
+    } else if(form == 'changePasswordForm') {
+
+      this.changePasswordForm.enable();
+    }
+    else if(form == 'shopForm') {
+
+      this.ShopInformationForm.enable();
+    }
+
 
       (<HTMLInputElement>document.getElementById('balance')).disabled = true;
       (<HTMLInputElement>document.getElementById('no-disabled-pass')).disabled = true

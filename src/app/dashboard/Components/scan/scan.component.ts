@@ -18,6 +18,7 @@ export class ScanComponent implements OnInit {
   errorList: string[];
   closeResult: string;
   success: string;
+  done = false // becaue ondeted رح تشتغل اكثر من مرة بالتالي رح يستدعي الابي اكثر من مرة وهاي مشكلة لهيك لازم يستدعيها مرة وحدة بس
   constructor(private modalService: NgbModal, private transactionService: TransactionsService) { }
 
 
@@ -29,12 +30,14 @@ export class ScanComponent implements OnInit {
      
     }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  
+      Quagga.stop()
+            that.done = false;
+
           });
 
            // this.closeResult = `Closed with: ${result}`;
            var that = this;
-
+           
       Quagga.init({
         inputStream : {
           name : "Live",
@@ -58,13 +61,15 @@ export class ScanComponent implements OnInit {
           
          
 
+          if(that.done == false) {
+                        that.done = true
 
           that.transactionService.charge(data.codeResult.code).subscribe(data => {
             that.modalService.dismissAll();
             that.success = "Successful"
             that.errorList = []
             that.invalidScan = false;
-            Quagga.stop()
+            
           }, error => {
            that.invalidScan = true;
         
@@ -74,6 +79,7 @@ export class ScanComponent implements OnInit {
               that.errorList.push(myErrors[i]);
             }
           })
+        }
      
         });
       

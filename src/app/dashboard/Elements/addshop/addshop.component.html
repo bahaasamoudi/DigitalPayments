@@ -43,6 +43,9 @@
     <ul *ngIf = "invalidAdd == true" class = "list-unstyled alert alert-danger mt-3">
         <li class = "text-danger" *ngFor="let error of errorList">{{error}}</li>
       </ul>
+      <div *ngIf = "invalidAdd == false" class = "alert alert-success">
+        Submited
+        </div>
     
     </form>
   </div>
